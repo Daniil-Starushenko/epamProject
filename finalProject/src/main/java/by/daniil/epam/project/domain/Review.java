@@ -3,7 +3,7 @@ package by.daniil.epam.project.domain;
 public class Review extends Entity {
     private User reviewedUser;
     private String comment;
-    private String DateOfReviewing;
+    private String dateOfReviewing;
 
     public User getReviewedUser() {
         return reviewedUser;
@@ -22,10 +22,10 @@ public class Review extends Entity {
     }
 
     public String getDateOfReviewing() {
-        return DateOfReviewing;
+        return dateOfReviewing;
     }
 
     public void setDateOfReviewing(String dateOfReviewing) {
-        DateOfReviewing = dateOfReviewing;
+        this.dateOfReviewing = dateOfReviewing;
     }
 }
