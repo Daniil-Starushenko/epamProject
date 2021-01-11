@@ -1,6 +1,6 @@
 use 'webShopDatabase';
 CREATE TABLE `users` (
-    `id` INTEGER NOT NULL,
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(20) NOT NULL,
     `login` VARCHAR(255) NOT NULL UNIQUE,
     `password` VARCHAR(32) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE `users` (
 );
 
 CREATE TABLE `product` (
-    `id` INTEGER NOT NULL,
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(32) NOT NULL,
     `png_path` VARCHAR(255) NOT NULL,
     `definition` TEXT NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE `product` (
 );
 
 CREATE TABLE `order` (
-    `id` INTEGER NOT NULL UNIQUE,
+    `id` INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
     `user_id` INTEGER,
     `address` VARCHAR(255) NOT NULL,
     `date_of_ordering` DATETIME NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `order` (
 );
 
 CREATE TABLE `order_item` (
-    `id` INTEGER NOT NULL UNIQUE,
+    `id` INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
     `order_id` INTEGER,
     `product_id` INTEGER,
     `quantity` INTEGER,
@@ -58,7 +58,7 @@ CREATE TABLE `order_item` (
 );
 
 CREATE TABLE `review` (
-    `id` INTEGER NOT NULL UNIQUE,
+    `id` INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
     `user_id` INTEGER,
     `text` TEXT NOT NULL,
     `date` DATETIME NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE `review` (
     ON DELETE RESTRICT
 );
 
-CREATE TABLE 'review_type' (
+CREATE TABLE `review_type` (
     `review_id` INTEGER,
     `deliveryman_id` INTEGER,
     `order_id` INTEGER,
@@ -80,7 +80,7 @@ CREATE TABLE 'review_type' (
 );
 
 CREATE TABLE `deliveryman` (
-    `id` INTEGER NOT NULL UNIQUE,
+    `id` INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
     `name` VARCHAR(20) NOT NULL,
     `phone_number` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`id`)
