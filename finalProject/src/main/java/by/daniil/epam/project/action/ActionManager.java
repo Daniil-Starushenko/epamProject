@@ -1,0 +1,12 @@
+package by.daniil.epam.project.action;
+
+import by.daniil.epam.project.exception.PersistentException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public interface ActionManager {
+    Action.Forward execute(Action action, HttpServletRequest request, HttpServletResponse response) throws PersistentException;
+
+    void close();
+}

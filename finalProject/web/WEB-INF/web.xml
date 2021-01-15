@@ -7,4 +7,19 @@
         <servlet-name>DispatcherServlet</servlet-name>
         <servlet-class>by.daniil.epam.project.controller.DispatcherServlet</servlet-class>
     </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <context-param>
+        <param-name>log4j-config-location</param-name>
+        <param-value>/WEB-INF/log4j.xml</param-value>
+    </context-param>
+
 </web-app>
