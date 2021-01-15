@@ -20,6 +20,11 @@ public enum Role {
     }
 
     public static Role getByTag(String tag) {
-        return Role.valueOf(tag);
+        for (Role role: Role.values()) {
+            if (role.getName().equals(tag)) {
+                return role;
+            }
+        }
+        return null;
     }
 }
