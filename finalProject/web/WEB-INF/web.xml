@@ -21,5 +21,28 @@
         <param-name>log4j-config-location</param-name>
         <param-value>/WEB-INF/log4j.xml</param-value>
     </context-param>
-
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>by.daniil.epam.project.controller.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>ActionFromUriFilter</filter-name>
+        <filter-class>by.daniil.epam.project.controller.ActionFromUrlFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ActionFromUriFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>SecurityFilter</filter-name>
+        <filter-class>by.daniil.epam.project.controller.SecurityFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SecurityFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
 </web-app>
