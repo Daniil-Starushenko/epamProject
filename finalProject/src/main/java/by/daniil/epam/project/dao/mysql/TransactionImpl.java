@@ -1,6 +1,7 @@
 package by.daniil.epam.project.dao.mysql;
 
 import by.daniil.epam.project.dao.Dao;
+import by.daniil.epam.project.dao.ProductDao;
 import by.daniil.epam.project.dao.UserDao;
 import by.daniil.epam.project.dao.transaction.Transaction;
 import by.daniil.epam.project.exception.PersistentException;
@@ -20,6 +21,7 @@ public class TransactionImpl implements Transaction {
     private static Map<Class<? extends Dao<?>>, Class<? extends BaseDaoImpl>> classes = new ConcurrentHashMap<>();
     static {
         classes.put(UserDao.class, UserDaoImpl.class);
+        classes.put(ProductDao.class, ProductDaoImpl.class);
     }
 
     private Connection connection;

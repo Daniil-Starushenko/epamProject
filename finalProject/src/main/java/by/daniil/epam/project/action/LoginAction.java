@@ -20,7 +20,7 @@ public class LoginAction extends Action {
 
     static {
         menu.put(Role.USER, new ArrayList<>(Arrays.asList(
-                new MenuItem("", "продукты")
+                new MenuItem("/user/search.html", "продукты")
         )));
         menu.put(Role.ADMINISTRATOR, new ArrayList<>(Arrays.asList(
                 new MenuItem("", "пользователи"),

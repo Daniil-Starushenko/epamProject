@@ -2,6 +2,8 @@ package by.daniil.epam.project.controller;
 
 import by.daniil.epam.project.action.Action;
 import by.daniil.epam.project.action.LoginAction;
+import by.daniil.epam.project.action.MainAction;
+import by.daniil.epam.project.action.user.SearchUserAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,7 +22,10 @@ public class ActionFromUrlFilter implements Filter {
     private static Map<String, Class<? extends Action>> actions = new HashMap<>();
 
     static {
+        actions.put("/index", MainAction.class);
         actions.put("/login", LoginAction.class);
+
+        actions.put("/user/search", SearchUserAction.class);
     }
 
     public void init(FilterConfig config) throws ServletException {
