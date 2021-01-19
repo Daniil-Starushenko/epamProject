@@ -33,11 +33,6 @@ CREATE TABLE `order` (
     `date_of_ordering` DATETIME NOT NULL,
     `phone_number` VARCHAR(20) NOT NULL,
     `total_price` DECIMAL(20,2) NOT NULL,
-    /*
-	 * admin - администратор (Role.ADMINISTRATOR)
-	 * user - пользователь (Role.USER)
-	 * deliveryman - доставщик (Role.DELIVERY_MAN)
-	 */
     `status` VARCHAR(20) NOT NULL CHECK (`status` IN('in_basket', 'in_transit', 'ready')),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)

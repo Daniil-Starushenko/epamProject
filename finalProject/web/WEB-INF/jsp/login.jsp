@@ -3,7 +3,8 @@
 <html>
 <style><%@include file="/WEB-INF/css/style1.css"%></style>
     <head>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}web/WEB-INF/css/style1.css" type="text/css"/>
+        <link href="${pageContext.request.contextPath}/WEB-INF/css/style1.css"
+              rel="stylesheet" type="text/css"/>
     </head>
     <c:url value="/login.html" var="loginUrl"/>
     <FORM action="${loginUrl}" method="post" class="loginClass">

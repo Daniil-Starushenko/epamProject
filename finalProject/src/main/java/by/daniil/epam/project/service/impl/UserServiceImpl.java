@@ -1,8 +1,10 @@
-package by.daniil.epam.project.service;
+package by.daniil.epam.project.service.impl;
 
 import by.daniil.epam.project.dao.UserDao;
 import by.daniil.epam.project.domain.User;
 import by.daniil.epam.project.exception.PersistentException;
+import by.daniil.epam.project.service.ServiceImpl;
+import by.daniil.epam.project.service.UserService;
 
 import java.util.List;
 

@@ -3,6 +3,7 @@ package by.daniil.epam.project.service;
 import by.daniil.epam.project.controller.DispatcherServlet;
 import by.daniil.epam.project.dao.transaction.TransactionFactory;
 import by.daniil.epam.project.exception.PersistentException;
+import by.daniil.epam.project.service.impl.UserServiceImpl;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

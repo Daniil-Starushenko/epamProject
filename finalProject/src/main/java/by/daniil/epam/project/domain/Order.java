@@ -1,5 +1,8 @@
 package by.daniil.epam.project.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Order extends Entity {
     private User customer;
     private String address;
@@ -8,6 +11,15 @@ public class Order extends Entity {
     private Double totalPrice;
     private OrderingStatus status;
     private DeliveryMan deliveryManForOrder;
+    private List<OrderItem> OrderProducts = new ArrayList<>();
+
+    public List<OrderItem> getOrderProducts() {
+        return OrderProducts;
+    }
+
+    public void setOrderProduct(OrderItem orderProduct) {
+        OrderProducts.add(orderProduct);
+    }
 
     public DeliveryMan getDeliveryManForOrder() {
         return deliveryManForOrder;

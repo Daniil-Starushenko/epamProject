@@ -4,6 +4,15 @@ body {
     font-family: "Asap", sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+}
+
 .buttonA {
     margin: auto;
     position: absolute;
@@ -44,7 +53,7 @@ body {
 .loginClass::before {
     left: 40%;
     bottom: -130%;
-    background-color: rgba(47, 212, 75, 0.15);
+    background-color: rgba(0, 255, 10, 0.15);
     -webkit-animation: wawes 6s infinite linear;
     -moz-animation: wawes 6s infinite linear;
     animation: wawes 6s infinite linear;
@@ -52,7 +61,7 @@ body {
 .loginClass::after {
     left: 35%;
     bottom: -125%;
-    background-color: rgba(239, 240, 32, 0.62);
+    background-color: rgba(207, 212, 207, 0.62);
     -webkit-animation: wawes 7s infinite;
     -moz-animation: wawes 7s infinite;
     animation: wawes 7s infinite;
@@ -121,11 +130,23 @@ body {
         transform: rotate(360deg);
     }
 }
-a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.6);
+
+.productTable {
+    overflow: hidden;
+    background-color: white;
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
     position: absolute;
-    right: 10px;
-    bottom: 10px;
-    font-size: 12px;
+    top: 20%;
+    left: 50%;
+    width: 80%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
+    -moz-transition: -moz-transform 300ms, box-shadow 300ms;
+    transition: transform 300ms, box-shadow 300ms;
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
 }

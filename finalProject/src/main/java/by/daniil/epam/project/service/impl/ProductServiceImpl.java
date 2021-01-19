@@ -1,16 +1,18 @@
-package by.daniil.epam.project.service;
+package by.daniil.epam.project.service.impl;
 
 import by.daniil.epam.project.dao.ProductDao;
 import by.daniil.epam.project.dao.mysql.ProductDaoImpl;
 import by.daniil.epam.project.domain.Product;
 import by.daniil.epam.project.exception.PersistentException;
+import by.daniil.epam.project.service.ProductService;
+import by.daniil.epam.project.service.ServiceImpl;
 
 import java.util.List;
 
 public class ProductServiceImpl extends ServiceImpl implements ProductService {
     @Override
     public List<Product> findAll() throws PersistentException {
-        ProductDao productDao = transaction.createDao(ProductDaoImpl.class);
+        ProductDao productDao = transaction.createDao(ProductDao.class);
         return productDao.read();
     }
 

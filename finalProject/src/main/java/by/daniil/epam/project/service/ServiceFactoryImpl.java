@@ -1,10 +1,11 @@
 package by.daniil.epam.project.service;
 
-import by.daniil.epam.project.dao.mysql.TransactionFactoryImpl;
 import by.daniil.epam.project.dao.transaction.Transaction;
 import by.daniil.epam.project.dao.transaction.TransactionFactory;
 import by.daniil.epam.project.exception.PersistentException;
 
+import by.daniil.epam.project.service.impl.ProductServiceImpl;
+import by.daniil.epam.project.service.impl.UserServiceImpl;
 import by.daniil.epam.project.service.interceptor.ServiceInvocationHandlerImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

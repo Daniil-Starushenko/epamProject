@@ -37,4 +37,14 @@ public class Product extends Entity {
     public void setPrice(Double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productName='" + productName + '\'' +
+                ", pngPath='" + pngPath + '\'' +
+                ", definition='" + definition + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
