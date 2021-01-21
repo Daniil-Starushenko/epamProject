@@ -17,14 +17,24 @@ a:hover {
     transition: all 0.4s ease-in-out;
 }
 
-/*логин и регистрация*/
 .buttonA {
-    margin: auto;
-    position: absolute;
+    vertical-align: center;
+    right: 30%;
+    transform: translate(-50% 0);
+    padding: 20px;
     top: 50%;
-    right: 50%;
 }
 
+.buttonA2 {
+    vertical-align: center;
+    left: 30%;
+    transform: translate(50% 0);
+    padding: 20px;
+    top: 50%;
+}
+
+
+/*логин и регистрация*/
 .loginClass {
     overflow: hidden;
     background-color: white;

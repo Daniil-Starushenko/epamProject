@@ -29,7 +29,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao {
             statement.setString(3, user.getPassword());
             statement.setString(4, user.getMail());
             statement.setString(5, user.getRegistrationDate());
-            statement.setInt(6, user.getRole().getIdentity());
+            statement.setString(6, user.getRole().toString());
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {

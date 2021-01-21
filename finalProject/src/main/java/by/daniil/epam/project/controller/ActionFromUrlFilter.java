@@ -1,9 +1,6 @@
 package by.daniil.epam.project.controller;
 
-import by.daniil.epam.project.action.Action;
-import by.daniil.epam.project.action.LoginAction;
-import by.daniil.epam.project.action.LogoutAction;
-import by.daniil.epam.project.action.MainAction;
+import by.daniil.epam.project.action.*;
 import by.daniil.epam.project.action.user.ProductInfo;
 import by.daniil.epam.project.action.user.ProductToBasket;
 import by.daniil.epam.project.action.user.SearchUserAction;
@@ -26,6 +23,7 @@ public class ActionFromUrlFilter implements Filter {
     static {
         actions.put("/index", MainAction.class);
         actions.put("/login", LoginAction.class);
+        actions.put("/register", Register.class);
 
         actions.put("/user/search", SearchUserAction.class);
         actions.put("/user/product", ProductInfo.class);

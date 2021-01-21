@@ -30,11 +30,18 @@ public class UserServiceImpl extends ServiceImpl implements UserService {
     @Override
     public void save(User user) throws PersistentException {  //добавить хэш, если понадобится
         UserDao userDao = transaction.createDao(UserDao.class); //TODO сделать `save`
+
     }
 
     @Override
     public void delete(Integer id) throws PersistentException {
         UserDao userDao = transaction.createDao(UserDao.class);
         userDao.delete(id);
+    }
+
+    @Override
+    public void create(User user) throws PersistentException {
+        UserDao userDao = transaction.createDao(UserDao.class);
+        userDao.create(user);
     }
 }
