@@ -1,6 +1,7 @@
 package by.daniil.epam.project.dao.mysql;
 
 import by.daniil.epam.project.dao.Dao;
+import by.daniil.epam.project.dao.OrderItemDao;
 import by.daniil.epam.project.dao.ProductDao;
 import by.daniil.epam.project.dao.UserDao;
 import by.daniil.epam.project.dao.transaction.Transaction;
@@ -22,6 +23,7 @@ public class TransactionImpl implements Transaction {
     static {
         classes.put(UserDao.class, UserDaoImpl.class);
         classes.put(ProductDao.class, ProductDaoImpl.class);
+        classes.put(OrderItemDao.class, OrderItemDaoImpl.class);
     }
 
     private Connection connection;

@@ -20,14 +20,18 @@ public class LoginAction extends Action {
 
     static {
         menu.put(Role.USER, new ArrayList<>(Arrays.asList(
-                new MenuItem("/user/search.html", "продукты")
+                new MenuItem("/user/search.html", "shop"),
+                new MenuItem("/user/basket.html", "basket"),
+                new MenuItem("/user/logout.html", "logout")
         )));
         menu.put(Role.ADMINISTRATOR, new ArrayList<>(Arrays.asList(
                 new MenuItem("", "пользователи"),
-                new MenuItem("", "доставщики")
+                new MenuItem("", "доставщики"),
+                new MenuItem("/user/logout.html", "logout")
         )));
         menu.put(Role.DELIVERY_MAN, new ArrayList<>(Arrays.asList(
-                new MenuItem("", "заказы")
+                new MenuItem("", "заказы"),
+                new MenuItem("/user/logout.html", "logout")
         )));
     }
 

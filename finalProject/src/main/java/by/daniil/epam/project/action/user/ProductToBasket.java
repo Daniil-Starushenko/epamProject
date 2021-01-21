@@ -12,28 +12,30 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchUserAction  extends UserAction {
-    Logger logger = LogManager.getLogger(SearchUserAction.class);
+public class ProductToBasket extends UserAction {
+    Logger logger = LogManager.getLogger(ProductInfo.class);
+    private Product productToAdd = new Product();
     private List<Product> basket;
-    private Product productToAdd;
 
     @Override
     public Forward exec(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         HttpSession userSession = request.getSession(false);
-        if (userSession.getAttribute("basket") == null && userSession.getAttribute("productToAdd") == null) {
+        ProductService service = factory.getService(ProductService.class);
+        String id = (String)request.getParameter("productIdentity");
+        if (id != null) {
             basket = new ArrayList<>();
-            productToAdd = new Product();
+            int productId = Integer.parseInt(id);
+            productToAdd = service.findById(productId);
+            basket = (List<Product>)userSession.getAttribute("basket");
+            basket.add(productToAdd);
             userSession.setAttribute("basket", basket);
-            userSession.setAttribute("productToAdd", productToAdd);
         }
 
-        ProductService service = factory.getService(ProductService.class);
-        List<Product> products = service.findAll();
-        if (!products.isEmpty()) {
-            request.setAttribute("products", products);
-            return new Forward("/user/search.jsp", false);
+        if (productToAdd != null) {
+            request.setAttribute("product", productToAdd);
+            return new Forward("/user/search.html");
         } else {
-            request.setAttribute("message", "нет продуктов");
+            request.setAttribute("message", "доступ закрыт");
             logger.info(String.format("access was failed"));
         }
         return null;

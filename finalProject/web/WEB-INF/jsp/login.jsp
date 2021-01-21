@@ -12,18 +12,4 @@
         <INPUT type="password" placeholder="Password" name="password">
         <BUTTON type="submit">login</BUTTON>
     </FORM>
-
-<%--<form class="login">--%>
-<%--    <input type="text" placeholder="Username">--%>
-<%--    <input type="password" placeholder="Password">--%>
-<%--    <button>Login</button>--%>
-<%--</form>--%>
-
-<%--<FORM action="${loginUrl}" method="post" class="login">--%>
-<%--    <LABEL for="login">Имя пользователя:</LABEL>--%>
-<%--    <INPUT type="text" id="login" name="login" value="${param.login}">--%>
-<%--    <LABEL for="password">Пароль:</LABEL>--%>
-<%--    <INPUT type="password" id="password" name="password">--%>
-<%--    <BUTTON type="submit">Войти</BUTTON>--%>
-<%--</FORM>--%>
 </html>

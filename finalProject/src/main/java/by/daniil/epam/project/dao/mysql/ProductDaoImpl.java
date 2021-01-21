@@ -120,7 +120,7 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 
     @Override
     public Product read(Integer id) throws PersistentException {
-        String sql = "SELECT `png_path`, `definition`, `price` FROM `product` WHERE `id` = ?";
+        String sql = "SELECT `name`, `png_path`, `definition`, `price` FROM `product` WHERE `id` = ?";
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         try {
@@ -161,6 +161,7 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
             statement.setString(2, product.getPngPath());
             statement.setString(3, product.getDefinition());
             statement.setDouble(4, product.getPrice());
+            statement.setInt(5, product.getIdentity());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new PersistentException(e);

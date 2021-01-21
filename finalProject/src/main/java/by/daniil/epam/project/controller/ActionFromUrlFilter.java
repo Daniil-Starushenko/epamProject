@@ -2,7 +2,10 @@ package by.daniil.epam.project.controller;
 
 import by.daniil.epam.project.action.Action;
 import by.daniil.epam.project.action.LoginAction;
+import by.daniil.epam.project.action.LogoutAction;
 import by.daniil.epam.project.action.MainAction;
+import by.daniil.epam.project.action.user.ProductInfo;
+import by.daniil.epam.project.action.user.ProductToBasket;
 import by.daniil.epam.project.action.user.SearchUserAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +14,6 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +28,9 @@ public class ActionFromUrlFilter implements Filter {
         actions.put("/login", LoginAction.class);
 
         actions.put("/user/search", SearchUserAction.class);
+        actions.put("/user/product", ProductInfo.class);
+        actions.put("/user/add/product", ProductToBasket.class);
+        actions.put("/user/logout", LogoutAction.class);
     }
 
     public void init(FilterConfig config) throws ServletException {
