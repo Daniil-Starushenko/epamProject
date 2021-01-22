@@ -2,8 +2,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <c:choose>
-    <c:when test="${not empty error}">
-        <H2>${error}</H2>
+    <c:when test="${not empty requestScope.error}">
+        <H2>${requestScope.error}</H2>
     </c:when>
     <c:when test="${not empty pageContext.errorData.requestURI}">
         <H2>Запрошенная страница ${pageContext.errorData.requestURI} не найдена на сервере</H2>

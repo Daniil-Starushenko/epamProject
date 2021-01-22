@@ -2,8 +2,8 @@
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<DIV class ="header">
     <html>
+<DIV class ="header">
     <style><%@include file="/WEB-INF/css/style1.css"%></style>
     <c:if test="${not empty sessionScope.authorizedUser}">
             <c:forEach items="${sessionScope.menu}" var="item">
@@ -12,5 +12,5 @@
             </c:forEach>
                 <A class="aEdit" href="">${sessionScope.authorizedUser.login}</A>
     </c:if>
-    </html>
 </DIV>
+    </html>

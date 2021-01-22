@@ -1,6 +1,7 @@
 package by.daniil.epam.project.controller;
 
 import by.daniil.epam.project.action.*;
+import by.daniil.epam.project.action.user.BasketInfo;
 import by.daniil.epam.project.action.user.ProductInfo;
 import by.daniil.epam.project.action.user.ProductToBasket;
 import by.daniil.epam.project.action.user.SearchUserAction;
@@ -29,6 +30,7 @@ public class ActionFromUrlFilter implements Filter {
         actions.put("/user/product", ProductInfo.class);
         actions.put("/user/add/product", ProductToBasket.class);
         actions.put("/user/logout", LogoutAction.class);
+        actions.put("/user/basket", BasketInfo.class);
     }
 
     public void init(FilterConfig config) throws ServletException {

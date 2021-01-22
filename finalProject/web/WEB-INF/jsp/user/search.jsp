@@ -9,30 +9,28 @@
     <body>
     <c:url value="/user/product.html" var="UserProductUrl"/>
     <u:menu/>
-    <div class="productTable">
-        <table style="border-style: solid;
-        width: 100%;
-        border-collapse: collapse;">
-            <thead>
-            <tr>
-                <td style="width: 20%;"></td>
-                <td style="width: 20%;"></td>
-                <td style="width: 20%"></td>
-                <td style="width: 10%;"></td>
-            </tr>
-            </thead>
+    <div class="container_For_Products">
+        <ul class="responsive-table">
+            <li class="table-header">
+                <div class="col col-1">dish</div>
+                <div class="col col-2">photo</div>
+                <div class="col col-3">price</div>
+                <div class="col col-4">+</div>
+            </li>
             <c:forEach var="product" items="${requestScope.products}">
-                <tr style="height: 50px;
-                 text-align: center">
-                    <td>${product.productName}
+                <li class="table-row">
+                    <div class="col col-1">${product.productName}</div>
+                    <div class="col col-2">photo</div>
+                    <div class="col col-3">${product.price}$</div>
+                    <div class="col col-4">
                         <FORM id="form-${product.identity}" action="${UserProductUrl}" method="post">
-                            <INPUT type="submit" name="identity" value="${product.identity}">
+                            <INPUT type="hidden" name="identity" value="${product.identity}">
+                            <button type="submit">+</button>
                         </FORM>
-                    </td>
-                    <td><c:out value="${product.price}$"/></td>
-                </tr>
+                    </div>
+                </li>
             </c:forEach>
-        </table>
+        </ul>
     </div>
     </body>
 </html>

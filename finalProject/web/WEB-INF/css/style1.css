@@ -148,27 +148,69 @@ a:hover {
 
 /*магазин*/
 
-.productTable {
-    overflow: hidden;
-    background-color: white;
-    padding: 20px 20px 20px 20px;
-    border-radius: 10px;
-    position: absolute;
-    top: 40%;
-    left: 10%;
-    text-align: center;
-    width: 75%;
-    /*-webkit-transform: translate(-50%, -50%);*/
-    /*-moz-transform: translate(-50%, -50%);*/
-    /*-ms-transform: translate(-50%, -50%);*/
-    /*-o-transform: translate(-50%, -50%);*/
-    /*transform: translate(-50%, -50%);*/
-    /*-webkit-transition: -webkit-transform 300ms, box-shadow 300ms;*/
-    /*-moz-transition: -moz-transform 300ms, box-shadow 300ms;*/
-    /*transition: transform 300ms, box-shadow 300ms;*/
-    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
-    transition: all 0.4s ease-in-out;
+.container_For_Products {
+    margin-top: 5%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
 }
+
+.responsive-table li {
+    border-radius: 5px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.responsive-table .table-header {
+    background-color: #917434;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.responsive-table .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+.responsive-table .col-1 {
+    flex-basis: 10%;
+}
+.responsive-table .col-2 {
+    flex-basis: 10%;
+}
+.responsive-table .col-3 {
+    flex-basis: 10%;
+}
+.responsive-table .col-4 {
+    flex-basis: 10%;
+}
+@media all and (max-width: 767px) {
+    .responsive-table .table-header {
+        display: none;
+    }
+    .responsive-table li {
+        display: block;
+    }
+    .responsive-table .col {
+        flex-basis: 100%;
+    }
+    .responsive-table .col {
+        display: flex;
+        padding: 10px 0;
+    }
+    .responsive-table .col:before {
+        color: #6c7a89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+    }
+}
+
+
+
 
 
 /*product page*/
@@ -178,7 +220,7 @@ a:hover {
     position: relative;
     margin: auto;
     overflow: hidden;
-    top: 70px;
+    top: 90px;
     width: 60%;
     height:60%;
     background: #f5f5f5;
@@ -237,7 +279,7 @@ button {
     border-radius: 2px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #f5f5f5;
+    color: #000000;
     cursor: pointer;
 }
 button:hover {
@@ -253,10 +295,10 @@ button:hover {
 
 .header {
     display: inline;
-    position: absolute;
-    margin-top: 0;
+    position: relative;
+    margin-top: 0%;
     overflow: hidden;
-    background-color: #f1c05e;
+    background-color: rgba(241, 192, 94, 0.0);
     height: 7%;
     width: 80%;
 }
@@ -309,4 +351,66 @@ button:hover {
     color: #d62241;
     transition: all 0.4s ease-in-out;
     font-size: 32px;
+}
+
+/*модальное окно*/
+
+.modalDialog {
+    position: fixed;
+    font-family: "Asap", sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    display: block;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.inputBasket {
+    font-family: "Asap", sans-serif;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border-width: 1px;
+    border-color: #F1C05E;
+    padding: 10px 10px;
+    margin: 15px -10px;
+}
+
+.close {
+    background: rgba(1 1 1 0.0);
+    color: #f1c05e;
+    position: absolute;
+    right: 8px;
+    text-align: center;
+    top: -50px;
+    height: 5px;
+    width: 24px;
+    text-decoration: none;
+}
+
+.close:hover {
+    color: #c69b50;
+    transition: all 0.4s ease-in-out;
 }

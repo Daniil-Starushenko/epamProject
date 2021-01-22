@@ -12,18 +12,13 @@
 <c:url value="/user/add/product.html" var="UserAddProductUrl"/>
 <form action="${UserAddProductUrl}" method="post">
 <div class="containerProduct">
-    <%--    <div class="images">--%>
-    <%--        <img src="" />--%>
-    <%--    </div>--%>
-    <p class="pick">choose quantity</p>
-
     <div class="product">
         <p>DISH</p>
         <h1>${product.productName}</h1>
         <h2>${product.price}$</h2>
         <p class="desc">${product.definition}</p>
         <div class="buttons">
-            <button type="submit" name="productIdentity" value="${product.identity}" class="add">Add to Cart</button>
+            <button type="submit" name="productIdentity" value="${product.identity}" class="add">Add to basket</button>
         </div>
     </div>
 </div>
