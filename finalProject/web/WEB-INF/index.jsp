@@ -2,7 +2,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <html>
-<style><%@include file="/WEB-INF/css/style1.css"%></style>
+<style>
+    <%@include file="/WEB-INF/css/style1.css"%>
+</style>
     <head>
         <title>start</title>
     </head>

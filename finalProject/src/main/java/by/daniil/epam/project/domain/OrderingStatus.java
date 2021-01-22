@@ -11,7 +11,25 @@ public enum OrderingStatus {
         this.name = name;
     }
 
-    public static OrderingStatus getByTag(String status) {
-        return OrderingStatus.valueOf(status);
+    public String getName() {
+        return name;
+    }
+
+    public Integer getIdentity() {
+        return ordinal();
+    }
+
+    public static OrderingStatus getByTag(String tag) {
+        for (OrderingStatus status: OrderingStatus.values()) {
+            if (status.getName().equals(tag)) {
+                return status;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return name.toLowerCase();
     }
 }

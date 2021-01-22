@@ -72,6 +72,7 @@ public class Register extends Action {
         return null;
     }
 
+    //TODO: normal date type
     public String createDate() {
         SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
         Date date = new Date();

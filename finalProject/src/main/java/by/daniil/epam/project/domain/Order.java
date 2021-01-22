@@ -1,12 +1,14 @@
 package by.daniil.epam.project.domain;
 
+import javax.xml.registry.infomodel.TelephoneNumber;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Order extends Entity {
     private User customer;
     private String address;
-    private String dateOfOrdering;
+    private Date dateOfOrdering;
     private String phoneNumber;
     private Double totalPrice;
     private OrderingStatus status;
@@ -29,6 +31,14 @@ public class Order extends Entity {
         this.deliveryManForOrder = deliveryManForOrder;
     }
 
+    public Date getDateOfOrdering() {
+        return dateOfOrdering;
+    }
+
+    public void setDateOfOrdering(Date dateOfOrdering) {
+        this.dateOfOrdering = dateOfOrdering;
+    }
+
     public User getCustomer() {
         return customer;
     }
@@ -43,14 +53,6 @@ public class Order extends Entity {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getDateOfOrdering() {
-        return dateOfOrdering;
-    }
-
-    public void setDateOfOrdering(String dateOfOrdering) {
-        this.dateOfOrdering = dateOfOrdering;
     }
 
     public String getPhoneNumber() {
