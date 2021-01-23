@@ -1,6 +1,9 @@
 <%@tag language="java" pageEncoding="UTF-8"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.text}" scope="session"/>
+<fmt:setBundle basename="locale.text" var="message"/>
 
     <html>
 <DIV class ="header">
@@ -8,7 +11,7 @@
     <c:if test="${not empty sessionScope.authorizedUser}">
             <c:forEach items="${sessionScope.menu}" var="item">
                 <c:url value="${item.url}" var="itemUrl"/>
-                <A class="aMenu" href="${itemUrl}">${item.name}</A>
+                <A class="aMenu" href="${itemUrl}"><fmt:message key="${item.name}" bundle="${message}"/></A>
             </c:forEach>
                 <A class="aEdit" href="">${sessionScope.authorizedUser.login}</A>
     </c:if>

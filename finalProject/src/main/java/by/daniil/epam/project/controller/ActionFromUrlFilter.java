@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebFilter(filterName = "ActionFromUrlFilter")
 public class ActionFromUrlFilter implements Filter {
     private static Logger logger = LogManager.getLogger(ActionFromUrlFilter.class);
 
@@ -22,6 +21,7 @@ public class ActionFromUrlFilter implements Filter {
         actions.put("/index", MainAction.class);
         actions.put("/login", LoginAction.class);
         actions.put("/register", Register.class);
+        actions.put("/user/language", SetLanguageAction.class);
 
         actions.put("/user/search", SearchUserAction.class);
         actions.put("/user/product", ProductInfo.class);

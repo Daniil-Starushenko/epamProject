@@ -38,6 +38,14 @@
         <url-pattern>*.html</url-pattern>
     </filter-mapping>
     <filter>
+        <filter-name>LanguageFilter</filter-name>
+        <filter-class>by.daniil.epam.project.controller.LanguageFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LanguageFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+    <filter>
         <filter-name>SecurityFilter</filter-name>
         <filter-class>by.daniil.epam.project.controller.SecurityFilter</filter-class>
     </filter>
@@ -45,4 +53,5 @@
         <filter-name>SecurityFilter</filter-name>
         <url-pattern>*.html</url-pattern>
     </filter-mapping>
+
 </web-app>

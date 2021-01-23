@@ -7,11 +7,9 @@ import by.daniil.epam.project.service.ServiceFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public abstract class Action {
     private Set<Role> allowRoles = new HashSet<>();
@@ -79,6 +77,20 @@ public abstract class Action {
         public Map<String, Object> getAttributes() {
             return attributes;
         }
+    }
+
+    protected String getStringFromResourceBundle(HttpSession session, String nameLoc) {
+        Object localParameter = session.getAttribute("text");
+        Locale currentLang;
+        if (localParameter != null) {
+            String string = String.valueOf(localParameter);
+            String[] langParameters = string.split("_");
+            currentLang = new Locale(langParameters[0], langParameters[1]);
+        } else {
+            currentLang = new Locale("en", "US");
+        }
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("locale.text", currentLang);
+        return resourceBundle.getString(nameLoc);
     }
 }
 
