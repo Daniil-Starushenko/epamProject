@@ -51,6 +51,7 @@
                            required="required">
                     <p>total price: ${requestScope.totalPrice}$</p>
                     <c:if test="${sessionScope.basket.size() != 0}">
+                    <input type="hidden" name="totalPrice" value="${requestScope.totalPrice}">
                     <BUTTON type="submit">order</BUTTON>
                     </c:if>
                         <c:if test="${sessionScope.basket.size() == 0}">

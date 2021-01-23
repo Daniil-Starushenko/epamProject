@@ -15,4 +15,6 @@ public interface OrderService extends Service {
     void save(Order order) throws PersistentException;
 
     void delete(Integer id) throws  PersistentException;
+
+    Integer create(Order order) throws PersistentException;
 }

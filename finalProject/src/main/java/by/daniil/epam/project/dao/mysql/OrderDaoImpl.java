@@ -24,7 +24,7 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
             statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, entity.getCustomer().getIdentity());
             statement.setString(2, entity.getAddress());
-            statement.setDate(3, (Date)entity.getDateOfOrdering());
+            statement.setString(3, entity.getDateOfOrdering());
             statement.setString(4, entity.getPhoneNumber());
             statement.setDouble(5, entity.getTotalPrice());
             statement.setString(6, entity.getStatus().toString());
@@ -68,7 +68,7 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
                 user.setIdentity(resultSet.getInt("user_id"));
                 order.setCustomer(user);
                 order.setAddress(resultSet.getString("address"));
-                order.setDateOfOrdering(resultSet.getDate("date_of_ordering"));
+                order.setDateOfOrdering(resultSet.getString("date_of_ordering"));
                 order.setPhoneNumber(resultSet.getString("phone_number"));
                 order.setTotalPrice(resultSet.getDouble("total_price"));
                 order.setStatus(OrderingStatus.getByTag(resultSet.getString("status")));
@@ -106,7 +106,7 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
                 order = new Order();
                 order.setIdentity(resultSet.getInt("id"));
                 order.setCustomer(user);
-                order.setDateOfOrdering(resultSet.getDate("date_of_ordering"));
+                order.setDateOfOrdering(resultSet.getString("date_of_ordering"));
                 order.setPhoneNumber(resultSet.getString("phone_number"));
                 order.setTotalPrice(resultSet.getDouble("total_price"));
                 order.setStatus(OrderingStatus.getByTag(resultSet.getString("status")));
@@ -142,7 +142,7 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
                 user.setIdentity(resultSet.getInt("user_id"));
                 order.setCustomer(user);
                 order.setAddress(resultSet.getString("address"));
-                order.setDateOfOrdering(resultSet.getDate("date_of_ordering"));
+                order.setDateOfOrdering(resultSet.getString("date_of_ordering"));
                 order.setPhoneNumber(resultSet.getString("phone_number"));
                 order.setTotalPrice(resultSet.getDouble("total_price"));
                 order.setStatus(OrderingStatus.getByTag(resultSet.getString("status")));
@@ -171,7 +171,7 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
 
             statement.setInt(1, entity.getCustomer().getIdentity());
             statement.setString(2, entity.getAddress());
-            statement.setDate(3, (Date) entity.getDateOfOrdering());
+            statement.setString(3, entity.getDateOfOrdering());
             statement.setString(4, entity.getPhoneNumber());
             statement.setDate(5, (Date) entity.getOrderProducts());
             statement.setInt(6, entity.getStatus().getIdentity());

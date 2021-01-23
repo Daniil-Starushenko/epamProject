@@ -8,7 +8,7 @@ import java.util.List;
 public class Order extends Entity {
     private User customer;
     private String address;
-    private Date dateOfOrdering;
+    private String dateOfOrdering;
     private String phoneNumber;
     private Double totalPrice;
     private OrderingStatus status;
@@ -31,11 +31,11 @@ public class Order extends Entity {
         this.deliveryManForOrder = deliveryManForOrder;
     }
 
-    public Date getDateOfOrdering() {
+    public String getDateOfOrdering() {
         return dateOfOrdering;
     }
 
-    public void setDateOfOrdering(Date dateOfOrdering) {
+    public void setDateOfOrdering(String dateOfOrdering) {
         this.dateOfOrdering = dateOfOrdering;
     }
 

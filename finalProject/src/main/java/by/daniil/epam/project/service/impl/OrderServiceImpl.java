@@ -39,4 +39,10 @@ public class OrderServiceImpl  extends ServiceImpl implements OrderService {
         OrderDao orderDao = transaction.createDao(OrderDao.class);
         orderDao.delete(id);
     }
+
+    @Override
+    public Integer create(Order order) throws PersistentException {
+        OrderDao orderDao = transaction.createDao(OrderDao.class);
+        return orderDao.create(order);
+    }
 }
