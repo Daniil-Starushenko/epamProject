@@ -14,6 +14,15 @@ public class Order extends Entity {
     private OrderingStatus status;
     private DeliveryMan deliveryManForOrder;
     private List<OrderItem> OrderProducts = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
 
     public List<OrderItem> getOrderProducts() {
         return OrderProducts;

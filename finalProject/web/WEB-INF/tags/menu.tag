@@ -13,7 +13,8 @@
                 <c:url value="${item.url}" var="itemUrl"/>
                 <A class="aMenu" href="${itemUrl}"><fmt:message key="${item.name}" bundle="${message}"/></A>
             </c:forEach>
-                <A class="aEdit" href="">${sessionScope.authorizedUser.login}</A>
+                <c:url value="/user/profile.html" var="userProfileUrl"/>
+                <A class="aEdit" href="${userProfileUrl}">${sessionScope.authorizedUser.login}</A>
     </c:if>
 </DIV>
     </html>

@@ -29,6 +29,7 @@ public class ActionFromUrlFilter implements Filter {
         actions.put("/user/logout", LogoutAction.class);
         actions.put("/user/basket", BasketInfo.class);
         actions.put("/user/order", CreateOrderAction.class);
+        actions.put("/user/show/order", ShowOrderAction.class);
     }
 
     public void init(FilterConfig config) throws ServletException {

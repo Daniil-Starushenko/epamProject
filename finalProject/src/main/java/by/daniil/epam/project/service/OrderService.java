@@ -12,6 +12,8 @@ public interface OrderService extends Service {
 
     List<Order> findByUser(Integer userId) throws PersistentException;
 
+    List<Order> findByUserAndStatus(Integer userId, String status) throws PersistentException;
+
     void save(Order order) throws PersistentException;
 
     void delete(Integer id) throws  PersistentException;
