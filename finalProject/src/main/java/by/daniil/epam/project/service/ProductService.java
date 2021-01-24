@@ -3,6 +3,7 @@ package by.daniil.epam.project.service;
 import by.daniil.epam.project.domain.Product;
 import by.daniil.epam.project.exception.PersistentException;
 
+import javax.persistence.spi.PersistenceProviderResolver;
 import java.util.List;
 
 public interface ProductService extends Service {
@@ -15,4 +16,6 @@ public interface ProductService extends Service {
     void save(Product product) throws PersistentException;
 
     void delete(Integer id) throws  PersistentException;
+
+    void create(Product product) throws PersistentException;
 }

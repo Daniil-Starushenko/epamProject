@@ -1,6 +1,9 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib tagdir="/WEB-INF/tags" prefix="u"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="${sessionScope.text}" scope="session"/>
+<fmt:setBundle basename="locale.text" var="message"/>
 <html>
 <style><%@include file="/WEB-INF/css/style1.css"%></style>
     <head>
@@ -12,9 +15,9 @@
     <div class="container_For_Products">
         <ul class="responsive-table">
             <li class="table-header">
-                <div class="col col-1">dish</div>
-                <div class="col col-2">photo</div>
-                <div class="col col-3">price</div>
+                <div class="col col-1"><fmt:message key="table.dish" bundle="${message}"/></div>
+                <div class="col col-2"><fmt:message key="table.photo" bundle="${message}"/></div>
+                <div class="col col-3"><fmt:message key="table.price" bundle="${message}"/></div>
                 <div class="col col-4">+</div>
             </li>
             <c:forEach var="product" items="${requestScope.products}">

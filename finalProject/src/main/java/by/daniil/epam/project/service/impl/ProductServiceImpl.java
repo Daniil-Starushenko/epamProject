@@ -39,4 +39,11 @@ public class ProductServiceImpl extends ServiceImpl implements ProductService {
         ProductDao productDao = transaction.createDao(ProductDao.class);
         productDao.delete(id);
     }
+
+    @Override
+    public void create(Product product) throws PersistentException {
+        ProductDao productDao = transaction.createDao(ProductDao.class);
+        productDao.create(product);
+    }
+
 }

@@ -471,3 +471,37 @@ button:hover {
 /*        text-align: right;*/
 /*    }*/
 /*}*/
+
+/*edit product*/
+.editProductClass {
+    overflow: auto;
+    background-color: white;
+    padding: 40px 30px 30px 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: -webkit-transform 300ms, box-shadow 300ms;
+    -moz-transition: -moz-transform 300ms, box-shadow 300ms;
+    transition: transform 300ms, box-shadow 300ms;
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+}
+
+.editProductClass input, textarea {
+    font-family: "Asap", sans-serif;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border-width: 1px;
+    border-color: #F1C05E;
+    padding: 10px 10px;
+    margin: 15px -10px;
+}

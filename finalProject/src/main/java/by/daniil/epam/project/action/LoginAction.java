@@ -26,8 +26,7 @@ public class LoginAction extends Action {
                 new MenuItem("/user/show/order.html", "orders")
         )));
         menu.put(Role.ADMINISTRATOR, new ArrayList<>(Arrays.asList(
-                new MenuItem("", "пользователи"),
-                new MenuItem("", "доставщики"),
+                new MenuItem("/admin/main.html", "new product"),
                 new MenuItem("/user/logout.html", "logout")
         )));
         menu.put(Role.DELIVERY_MAN, new ArrayList<>(Arrays.asList(

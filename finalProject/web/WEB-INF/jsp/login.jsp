@@ -23,8 +23,8 @@
     </head>
     <c:url value="/login.html" var="loginUrl"/>
     <FORM action="${loginUrl}" method="post" class="loginClass">
-        <INPUT type="text" placeholder="Username" name="login" value="${param.login}">
-        <INPUT type="password" placeholder="Password" name="password">
+        <INPUT type="text" placeholder="username" name="login" value="${param.login}">
+        <INPUT type="password" placeholder="password" name="password">
         <BUTTON type="submit"> <fmt:message key="login" bundle="${message}"/></BUTTON>
     </FORM>
 </html>

@@ -1,6 +1,8 @@
 package by.daniil.epam.project.controller;
 
 import by.daniil.epam.project.action.*;
+import by.daniil.epam.project.action.admin.CreateProductAction;
+import by.daniil.epam.project.action.admin.ProductEditAction;
 import by.daniil.epam.project.action.user.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,6 +32,9 @@ public class ActionFromUrlFilter implements Filter {
         actions.put("/user/basket", BasketInfo.class);
         actions.put("/user/order", CreateOrderAction.class);
         actions.put("/user/show/order", ShowOrderAction.class);
+
+        actions.put("/admin/main", ProductEditAction.class);
+        actions.put("/admin/product/edit", CreateProductAction.class);
     }
 
     public void init(FilterConfig config) throws ServletException {
