@@ -2,6 +2,7 @@
 body {
     background-color: #F1C05E;
     font-family: "Asap", sans-serif;
+    margin: 0;
 }
 
 a {
@@ -269,7 +270,7 @@ h2 {
     border-radius: 5%;
 }
 
-button {
+.all_button {
     background: #ffde6c;
     padding: 10px;
     display: inline-block;
@@ -282,7 +283,7 @@ button {
     color: #000000;
     cursor: pointer;
 }
-button:hover {
+.all_button:hover {
     background: #c69b50;
     transition: all 0.4s ease-in-out;
 }
@@ -293,14 +294,11 @@ button:hover {
 
 /*меню*/
 
-.header {
-    display: inline;
-    position: relative;
-    margin-top: 0%;
-    overflow: hidden;
-    background-color: rgba(241, 192, 94, 0.0);
-    height: 7%;
-    width: 80%;
+header {
+    width: 100%;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 7%
 }
 
 .aMenu {
@@ -337,7 +335,6 @@ button:hover {
 }
 
 /*модальное окно*/
-
 .modalDialog {
     position: fixed;
     font-family: "Asap", sans-serif;
@@ -449,30 +446,15 @@ button:hover {
 .orders-table .col-4 {
     flex-basis: 10%;
 }
-/*@media all and (max-width: 767px) {*/
-/*    .responsive-table .table-header {*/
-/*        display: none;*/
-/*    }*/
-/*    .responsive-table li {*/
-/*        display: block;*/
-/*    }*/
-/*    .responsive-table .col {*/
-/*        flex-basis: 100%;*/
-/*    }*/
-/*    .responsive-table .col {*/
-/*        display: flex;*/
-/*        padding: 10px 0;*/
-/*    }*/
-/*    .responsive-table .col:before {*/
-/*        color: #6c7a89;*/
-/*        padding-right: 10px;*/
-/*        content: attr(data-label);*/
-/*        flex-basis: 50%;*/
-/*        text-align: right;*/
-/*    }*/
-/*}*/
 
 /*edit product*/
+/*admin*/
+.admin_body {
+    background-color: #5f95f1;
+    font-family: "Asap", sans-serif;
+}
+
+
 .editProductClass {
     overflow: auto;
     background-color: white;
@@ -501,7 +483,83 @@ button:hover {
     background: white;
     width: 100%;
     border-width: 1px;
-    border-color: #F1C05E;
+    border-color: #5f95f1;
     padding: 10px 10px;
     margin: 15px -10px;
+}
+
+.editProductClass button {
+
+    background: #5f95f1;
+    padding: 10px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    margin: -1px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+    cursor: pointer;
+}
+.editProductClass button:hover {
+    background: #34689b;
+    transition: all 0.4s ease-in-out;
+}
+
+
+
+
+/*ЭТАЛОННОЕ РАСПОЛОЖЕНИЕ*/
+.admin_main_buttons{
+    overflow: auto;
+    background-color: #5f95f1;
+    position: absolute;
+    width: 100%;
+    height: 93%;
+    justify-content:center;
+    align-items:center;
+}
+
+.admin_main_buttons button {
+    background: #5f95f1;
+    display: block;
+    width: 35%;
+    height: 10%;
+    border-width: 1px;
+    border-color: #fbfff4;
+    margin-top: 5%;
+    margin-left: 32.3%;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    cursor: pointer;
+
+}
+
+.admin_main_buttons button:hover {
+    background: white;
+    color: #5f95f1;
+}
+
+.main_button {
+    background: #5f95f1;
+    display: block;
+    width: 35%;
+    padding: 2%;
+    border-width: 1px;
+    border-color: #fbfff4;
+    margin-top: 1%;
+    margin-left: 32.3%;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    cursor: pointer;
+}
+
+.main_button:hover {
+    background: white;
+    color: #5f95f1;
 }

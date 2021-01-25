@@ -21,7 +21,7 @@
         <h2>${product.price}$</h2>
         <p class="desc">${product.definition}</p>
         <div class="buttons">
-            <button type="submit" name="productIdentity" value="${product.identity}" class="add"><fmt:message key="product.Add.To.Cort" bundle="${message}"/></button>
+            <button type="submit" name="productIdentity" value="${product.identity}" class="all_button"><fmt:message key="product.Add.To.Cort" bundle="${message}"/></button>
         </div>
     </div>
 </div>

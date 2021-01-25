@@ -28,7 +28,7 @@
                     <div class="col col-4">
                         <FORM id="form-${product.identity}" action="${UserProductUrl}" method="post">
                             <INPUT type="hidden" name="identity" value="${product.identity}">
-                            <button type="submit">+</button>
+                            <button type="submit" class="all_button">+</button>
                         </FORM>
                     </div>
                 </li>

@@ -65,9 +65,12 @@ CREATE TABLE `review` (
 
 CREATE TABLE `deliveryman` (
                                `id` INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
-                               `name` VARCHAR(20) NOT NULL,
+                               `user_id` INTEGER,
                                `phone_number` VARCHAR(20) NOT NULL,
-                               PRIMARY KEY (`id`)
+                               PRIMARY KEY (`id`),
+                               FOREIGN KEY (`user_id`) REFERENCES `users`(`id`)
+                                   ON UPDATE CASCADE
+                                   ON DELETE RESTRICT
 );
 CREATE TABLE `review_type` (
                                `review_id` INTEGER,

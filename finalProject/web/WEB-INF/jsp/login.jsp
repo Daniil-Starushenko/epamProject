@@ -7,10 +7,10 @@
 <div class="language">
     <c:url value="/user/language.html" var="languageUrl"/>
     <form action="${languageUrl}" method="post">
-        <button name="lang" value="eng" type="submit">
+        <button name="lang" value="eng" type="submit" class="all_button">
             <fmt:message key="english" bundle="${message}"/>
         </button>
-        <button name="lang" value="rus" type="submit">
+        <button name="lang" value="rus" type="submit" class="all_button">
             <fmt:message key="russian" bundle="${message}"/>
         </button>
     </form>

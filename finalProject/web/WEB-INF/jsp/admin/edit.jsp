@@ -4,11 +4,11 @@
 <html>
 <head>
     <style><%@include file="/WEB-INF/css/style1.css"%></style>
-    <title>basket</title>
+    <title>edit</title>
 </head>
-    <body>
+    <body class="admin_body">
     <u:menu/>
-    <c:url value="/admin/product/edit.html" var="adminProductEditUml"/>
+    <c:url value="/admin/product/create.html" var="adminProductEditUml"/>
     <FORM action="${adminProductEditUml}" method="post" class="editProductClass">
         <INPUT type="text" placeholder="name" name="EditProductName" required="required" class="inputEdit">
         <INPUT type="text" placeholder="png" name="pngPath">

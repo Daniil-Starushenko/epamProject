@@ -28,7 +28,7 @@
                         <div class="col col-4">
                             <form action="${UserBasketUrl}" method="post">
                                 <INPUT type="hidden" name="identityToDelete" value="${basketElement.identity}">
-                                <button type="submit">-</button>
+                                <button type="submit" class="all_button">-</button>
                             </form>
                         </div>
                     </li>
@@ -55,7 +55,7 @@
                     <p><fmt:message key="basket.modal.totalPrice" bundle="${message}"/> ${requestScope.totalPrice}$</p>
                     <c:if test="${sessionScope.basket.size() != 0}">
                     <input type="hidden" name="totalPrice" value="${requestScope.totalPrice}">
-                    <BUTTON type="submit"><fmt:message key="basket.modal.button.order" bundle="${message}"/></BUTTON>
+                    <BUTTON type="submit" class="all_button"><fmt:message key="basket.modal.button.order" bundle="${message}"/></BUTTON>
                     </c:if>
                         <c:if test="${sessionScope.basket.size() == 0}">
                             <p><fmt:message key="basket.modal.emptyBasket" bundle="${message}"/></p>

@@ -4,10 +4,7 @@ import by.daniil.epam.project.dao.transaction.Transaction;
 import by.daniil.epam.project.dao.transaction.TransactionFactory;
 import by.daniil.epam.project.exception.PersistentException;
 
-import by.daniil.epam.project.service.impl.OrderItemImpl;
-import by.daniil.epam.project.service.impl.OrderServiceImpl;
-import by.daniil.epam.project.service.impl.ProductServiceImpl;
-import by.daniil.epam.project.service.impl.UserServiceImpl;
+import by.daniil.epam.project.service.impl.*;
 import by.daniil.epam.project.service.interceptor.ServiceInvocationHandlerImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,6 +25,7 @@ public class ServiceFactoryImpl implements ServiceFactory {
         SERVICES.put(ProductService.class, ProductServiceImpl.class);
         SERVICES.put(OrderItemService.class, OrderItemImpl.class);
         SERVICES.put(OrderService.class, OrderServiceImpl.class);
+        SERVICES.put(DeliveryManService.class, DeliveryManServiceImpl.class);
     }
 
     private TransactionFactory factory;

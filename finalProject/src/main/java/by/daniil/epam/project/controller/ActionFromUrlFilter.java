@@ -1,14 +1,15 @@
 package by.daniil.epam.project.controller;
 
 import by.daniil.epam.project.action.*;
+import by.daniil.epam.project.action.admin.AdminMainAction;
 import by.daniil.epam.project.action.admin.CreateProductAction;
-import by.daniil.epam.project.action.admin.ProductEditAction;
+import by.daniil.epam.project.action.admin.EditDeliverymanAction;
+import by.daniil.epam.project.action.admin.EditProductAction;
 import by.daniil.epam.project.action.user.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.HashMap;
@@ -33,8 +34,10 @@ public class ActionFromUrlFilter implements Filter {
         actions.put("/user/order", CreateOrderAction.class);
         actions.put("/user/show/order", ShowOrderAction.class);
 
-        actions.put("/admin/main", ProductEditAction.class);
-        actions.put("/admin/product/edit", CreateProductAction.class);
+        actions.put("/admin/main", AdminMainAction.class);
+        actions.put("/admin/product/edit", EditProductAction.class);
+        actions.put("/admin/product/create", CreateProductAction.class);
+        actions.put("/admin/edit/deliveryman", EditDeliverymanAction.class);
     }
 
     public void init(FilterConfig config) throws ServletException {
@@ -44,7 +47,7 @@ public class ActionFromUrlFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         if(request instanceof HttpServletRequest) {
             HttpServletRequest httpRequest = (HttpServletRequest)request;
-            String contextPath = httpRequest.getContextPath();//TODO: this method?
+            String contextPath = httpRequest.getContextPath();
             String uri = httpRequest.getRequestURI();
             logger.debug(String.format("Starting of processing of request for URI \"%s\"", uri));
             int beginAction = contextPath.length();
