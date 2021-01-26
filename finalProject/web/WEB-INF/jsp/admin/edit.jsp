@@ -16,6 +16,9 @@
         <input type="text" required="required" name="editPrice" placeholder="price: 12.35">
         <BUTTON type="submit">Add product</BUTTON>
     </FORM>
-
+    <c:url value="/admin/main.html" var="MainUrl"/>
+    <form action="${MainUrl}" method="post">
+        <button type="submit" class="main_button">go to main</button>
+    </form>
     </body>
 </html>

@@ -16,6 +16,6 @@ public interface UserService extends Service {
 
     void delete(Integer id) throws  PersistentException;
 
-    void create(User user) throws PersistentException;
+    int create(User user) throws PersistentException;
 
 }

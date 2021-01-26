@@ -31,7 +31,7 @@ public class LoginAction extends Action {
                 new MenuItem("/user/logout.html", "logout")
         )));
         menu.put(Role.DELIVERY_MAN, new ArrayList<>(Arrays.asList(
-                new MenuItem("", "заказы"),
+                new MenuItem("/delivery/main.html", "main"),
                 new MenuItem("/user/logout.html", "logout")
         )));
     }

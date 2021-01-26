@@ -8,7 +8,7 @@
 </head>
 <body class="admin_body">
 <u:menu/>
-<c:url value="/admin/deliveryman/create.html" var="adminDeliverymanCreateUml"/>
+<c:url value="/admin/create/deliveryman.html" var="adminDeliverymanCreateUml"/>
 <FORM action="${adminDeliverymanCreateUml}" method="post" class="editProductClass">
     <input type="text" placeholder="name" name="name" value="${param.name}" required="required">
     <INPUT type="text" placeholder="Username" name="login" value="${param.login}" required="required">

@@ -40,8 +40,8 @@ public class UserServiceImpl extends ServiceImpl implements UserService {
     }
 
     @Override
-    public void create(User user) throws PersistentException {
+    public int create(User user) throws PersistentException {
         UserDao userDao = transaction.createDao(UserDao.class);
-        userDao.create(user);
+        return userDao.create(user);
     }
 }

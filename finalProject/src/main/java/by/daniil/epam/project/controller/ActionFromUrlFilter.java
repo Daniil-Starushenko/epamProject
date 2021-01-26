@@ -1,10 +1,8 @@
 package by.daniil.epam.project.controller;
 
 import by.daniil.epam.project.action.*;
-import by.daniil.epam.project.action.admin.AdminMainAction;
-import by.daniil.epam.project.action.admin.CreateProductAction;
-import by.daniil.epam.project.action.admin.EditDeliverymanAction;
-import by.daniil.epam.project.action.admin.EditProductAction;
+import by.daniil.epam.project.action.admin.*;
+import by.daniil.epam.project.action.deliveryman.MainDeliveryManAction;
 import by.daniil.epam.project.action.user.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,6 +36,9 @@ public class ActionFromUrlFilter implements Filter {
         actions.put("/admin/product/edit", EditProductAction.class);
         actions.put("/admin/product/create", CreateProductAction.class);
         actions.put("/admin/edit/deliveryman", EditDeliverymanAction.class);
+        actions.put("/admin/create/deliveryman", CreateDeliverymanAction.class);
+
+        actions.put("/delivery/main", MainDeliveryManAction.class);
     }
 
     public void init(FilterConfig config) throws ServletException {
