@@ -10,6 +10,8 @@ public interface DeliveryManService extends Service {
 
     DeliveryMan findById(Integer id) throws PersistentException;
 
+    DeliveryMan findByUsrId(Integer id) throws PersistentException;
+
     void save(DeliveryMan deliveryMan) throws PersistentException;
 
     void delete(Integer id) throws  PersistentException;

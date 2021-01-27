@@ -22,6 +22,12 @@ public class DeliveryManServiceImpl extends ServiceImpl implements DeliveryManSe
     }
 
     @Override
+    public DeliveryMan findByUsrId(Integer id) throws PersistentException {
+        DeliveryManDao deliveryManDao = transaction.createDao(DeliveryManDao.class);
+        return deliveryManDao.findByUserId(id);
+    }
+
+    @Override
     public void save(DeliveryMan deliveryMan) throws PersistentException {
         DeliveryManDao deliveryManDao = transaction.createDao(DeliveryManDao.class);
         deliveryManDao.update(deliveryMan);

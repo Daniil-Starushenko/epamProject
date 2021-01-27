@@ -249,8 +249,8 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
             statement.setString(2, entity.getAddress());
             statement.setString(3, entity.getDateOfOrdering());
             statement.setString(4, entity.getPhoneNumber());
-            statement.setDate(5, (Date) entity.getOrderProducts());
-            statement.setInt(6, entity.getStatus().getIdentity());
+            statement.setDouble(5, entity.getTotalPrice());
+            statement.setString(6, entity.getStatus().getName());
             statement.setInt(7, entity.getIdentity());
             statement.executeUpdate();
         } catch (SQLException e) {

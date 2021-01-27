@@ -319,6 +319,7 @@ h2 {
 }
 
 .all_button:active {
+    padding: 8px;
     background: #ffde6c;
     transition: all 0.1s ease-in-out;
     box-shadow: 5px 10px 10px rgba(2, 128, 144, 0);
@@ -674,4 +675,31 @@ header {
 }
 .responsive-table .col-4-active-order {
     flex-basis: 10%;
+}
+
+.take_order_button {
+    background: rgba(13, 110, 0, 0.31);
+    padding: 10px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    margin: -1px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.take_order_button:hover {
+    background: rgba(13, 110, 0, 0.45);
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+    transition: all 0.4s ease-in-out;
+}
+
+.take_order_button:active {
+    padding: 8px;
+    background: rgba(13, 110, 0, 0.45);
+    transition: all 0.1s ease-in-out;
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0);
 }

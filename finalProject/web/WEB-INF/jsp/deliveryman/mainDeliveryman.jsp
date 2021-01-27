@@ -13,13 +13,10 @@
     <form action="${NewOrderDeliveryman}" method="post">
         <button type="submit">show new orders</button>
     </form>
-<%--    <c:url value="/admin/edit/deliveryman.html" var="createDeliveryManUrl"/>--%>
-<%--    <form action="${createDeliveryManUrl}" method="post">--%>
+    <c:url value="/deliveryman/token_orders.html" var="TokenOrderDeliveryman"/>--%>
+    <form action="${TokenOrderDeliveryman}" method="post">
         <button type="submit">current orders</button>
-<%--    </form>--%>
-<%--    <form>--%>
-<%--        <button type="submit">show users</button>--%>
-<%--    </form>--%>
+    </form>
 </div>
 </body>
 </html>

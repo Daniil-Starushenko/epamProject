@@ -2,8 +2,7 @@ package by.daniil.epam.project.controller;
 
 import by.daniil.epam.project.action.*;
 import by.daniil.epam.project.action.admin.*;
-import by.daniil.epam.project.action.deliveryman.MainDeliveryManAction;
-import by.daniil.epam.project.action.deliveryman.ShowNewOrdersActivity;
+import by.daniil.epam.project.action.deliveryman.*;
 import by.daniil.epam.project.action.user.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -41,6 +40,9 @@ public class ActionFromUrlFilter implements Filter {
 
         actions.put("/delivery/main", MainDeliveryManAction.class);
         actions.put("/deliveryman/new_orders", ShowNewOrdersActivity.class);
+        actions.put("/deliveryman/order_page", OpenPersonalOrderPageAction.class);
+        actions.put("/deliveryman/take_order", TakeOrderAction.class);
+        actions.put("/deliveryman/token_orders", ShowTokenOrdersAction.class);
     }
     //TODO: names of actions and names of jsp
 

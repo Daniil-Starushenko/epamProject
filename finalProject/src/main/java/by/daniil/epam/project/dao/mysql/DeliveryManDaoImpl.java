@@ -53,6 +53,39 @@ public class DeliveryManDaoImpl extends BaseDaoImpl implements DeliveryManDao {
     }
 
     @Override
+    public DeliveryMan findByUserId(Integer id) throws PersistentException {
+        String sql = "SELECT `id`, `phone_number`FROM `deliveryman` WHERE `user_id` = ?";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            resultSet = statement.executeQuery();
+            DeliveryMan deliveryMan = null;
+            if (resultSet.next()) {
+                deliveryMan = new DeliveryMan();
+                User user = new User();
+                user.setIdentity(id);
+                deliveryMan.setUser(user);
+                deliveryMan.setIdentity(resultSet.getInt("id"));
+                deliveryMan.setPhoneNumber(resultSet.getString("phone_number"));
+            }
+            return deliveryMan;
+        } catch (SQLException e) {
+            throw new PersistentException(e);
+        } finally {
+            try {
+                resultSet.close();
+            } catch (SQLException | NullPointerException e) {
+            }
+            try {
+                statement.close();
+            } catch (SQLException | NullPointerException e) {
+            }
+        }
+    }
+
+    @Override
     public Integer create(DeliveryMan entity) throws PersistentException {
         String sql = "INSERT INTO `deliveryman` (`user_id`, `phone_number`) VALUES (?, ?)";
         PreparedStatement statement = null;

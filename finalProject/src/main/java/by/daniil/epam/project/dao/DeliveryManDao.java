@@ -9,4 +9,6 @@ public interface DeliveryManDao extends Dao<DeliveryMan> {
 
     List<DeliveryMan> read() throws PersistentException;
 
+    DeliveryMan findByUserId(Integer id) throws PersistentException;
+
 }
