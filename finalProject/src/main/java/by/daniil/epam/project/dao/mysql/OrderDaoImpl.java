@@ -106,6 +106,7 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
                 order = new Order();
                 order.setIdentity(resultSet.getInt("id"));
                 order.setCustomer(user);
+                order.setAddress(resultSet.getString("address"));
                 order.setDateOfOrdering(resultSet.getString("date_of_ordering"));
                 order.setPhoneNumber(resultSet.getString("phone_number"));
                 order.setTotalPrice(resultSet.getDouble("total_price"));
@@ -143,6 +144,44 @@ public class OrderDaoImpl extends BaseDaoImpl implements OrderDao {
                 order = new Order();
                 order.setIdentity(resultSet.getInt("id"));
                 order.setCustomer(user);
+                order.setAddress(resultSet.getString("address"));
+                order.setDateOfOrdering(resultSet.getString("date_of_ordering"));
+                order.setPhoneNumber(resultSet.getString("phone_number"));
+                order.setTotalPrice(resultSet.getDouble("total_price"));
+                order.setStatus(OrderingStatus.getByTag(status));
+                orders.add(order);
+            }
+            return orders;
+        } catch(SQLException e) {
+            throw new PersistentException(e);
+        } finally {
+            try {
+                resultSet.close();
+            } catch(SQLException | NullPointerException e) {}
+            try {
+                statement.close();
+            } catch(SQLException | NullPointerException e) {}
+        }
+    }
+
+    @Override
+    public List<Order> readByStatus(String status) throws PersistentException {
+        String sql = "SELECT `id`, `user_id`,`address`, `date_of_ordering`, `phone_number`, `total_price` FROM `order` WHERE `status` = ?";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, status);
+            resultSet = statement.executeQuery();
+            List<Order> orders = new ArrayList<>();
+            Order order = null;
+            while(resultSet.next()) {
+                order = new Order();
+                order.setIdentity(resultSet.getInt("id"));
+                User user = new User();
+                user.setIdentity(resultSet.getInt("user_id"));
+                order.setCustomer(user);
+                order.setAddress(resultSet.getString("address"));
                 order.setDateOfOrdering(resultSet.getString("date_of_ordering"));
                 order.setPhoneNumber(resultSet.getString("phone_number"));
                 order.setTotalPrice(resultSet.getDouble("total_price"));

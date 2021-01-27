@@ -34,6 +34,12 @@ public class OrderServiceImpl  extends ServiceImpl implements OrderService {
         return orderDao.readByStatusAndUser(userId, status);
     }
 
+    @Override
+    public List<Order> findByStatus(String status) throws PersistentException {
+        OrderDao orderDao = transaction.createDao(OrderDao.class);
+        return orderDao.readByStatus(status);
+    }
+
 
     @Override
     public void save(Order order) throws PersistentException {

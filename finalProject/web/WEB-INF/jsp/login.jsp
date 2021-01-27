@@ -27,4 +27,8 @@
         <INPUT type="password" placeholder="password" name="password">
         <BUTTON type="submit"> <fmt:message key="login" bundle="${message}"/></BUTTON>
     </FORM>
+    <c:url value="/register.html" var="registerUrl"/>
+    <form action="${registerUrl}" method="post">
+        <button type="submit" class="registration_button">registration</button>
+    </form>
 </html>

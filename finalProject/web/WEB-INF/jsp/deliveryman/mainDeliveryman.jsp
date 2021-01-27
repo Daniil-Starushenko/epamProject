@@ -9,8 +9,8 @@
 <body class="deliveryman_body">
 <u:menu/>
 <div class="deliveryman_main_buttons">
-    <c:url value="/admin/product/edit.html" var="AdminProductEditUrl"/>
-    <form action="${AdminProductEditUrl}" method="post">--%>
+    <c:url value="/deliveryman/new_orders.html" var="NewOrderDeliveryman"/>
+    <form action="${NewOrderDeliveryman}" method="post">
         <button type="submit">show new orders</button>
     </form>
 <%--    <c:url value="/admin/edit/deliveryman.html" var="createDeliveryManUrl"/>--%>

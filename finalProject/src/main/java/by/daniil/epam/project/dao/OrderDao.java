@@ -14,4 +14,6 @@ public interface OrderDao extends Dao<Order> {
     List<Order> readByUserId(Integer userId) throws PersistentException;
 
     List<Order> readByStatusAndUser(Integer userId, String status) throws PersistentException;
+
+    List<Order> readByStatus(String status) throws PersistentException;
 }

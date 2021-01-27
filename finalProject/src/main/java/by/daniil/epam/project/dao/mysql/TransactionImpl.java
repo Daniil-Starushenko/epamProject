@@ -23,6 +23,7 @@ public class TransactionImpl implements Transaction {
         classes.put(OrderItemDao.class, OrderItemDaoImpl.class);
         classes.put(OrderDao.class, OrderDaoImpl.class);
         classes.put(DeliveryManDao.class, DeliveryManDaoImpl.class);
+        classes.put(DeliverymanOrderDao.class, DeliverymanOrderDaoImpl.class);
     }
 
     private Connection connection;

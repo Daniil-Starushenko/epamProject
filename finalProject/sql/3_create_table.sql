@@ -84,8 +84,10 @@ CREATE TABLE `review_type` (
 );
 
 CREATE TABLE `deliveryman_order` (
+                                     `id` INTEGER NOT NULL UNIQUE AUTO_INCREMENT,
                                      `deliveryman_id` INTEGER,
                                      `order_id` INTEGER,
+                                     PRIMARY KEY (`id`),
                                      FOREIGN KEY (`deliveryman_id`) REFERENCES `deliveryman`(`id`),
                                      FOREIGN KEY (`order_id`) REFERENCES `order`(`id`)
                                          ON UPDATE CASCADE

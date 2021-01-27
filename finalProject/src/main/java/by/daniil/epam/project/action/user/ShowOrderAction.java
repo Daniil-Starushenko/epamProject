@@ -1,8 +1,9 @@
 package by.daniil.epam.project.action.user;
 
-import by.daniil.epam.project.domain.*;
+import by.daniil.epam.project.domain.Order;
+import by.daniil.epam.project.domain.OrderingStatus;
+import by.daniil.epam.project.domain.User;
 import by.daniil.epam.project.exception.PersistentException;
-import by.daniil.epam.project.service.OrderItemService;
 import by.daniil.epam.project.service.OrderService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,8 +11,6 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.net.http.HttpRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ShowOrderAction extends UserAction {
