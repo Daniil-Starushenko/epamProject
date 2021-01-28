@@ -2,7 +2,7 @@ package by.daniil.epam.project.action.deliveryman;
 
 import by.daniil.epam.project.domain.*;
 import by.daniil.epam.project.exception.PersistentException;
-import by.daniil.epam.project.service.DeliveryManService;
+import by.daniil.epam.project.service.DeliverymanService;
 import by.daniil.epam.project.service.DeliverymanOrderService;
 import by.daniil.epam.project.service.OrderService;
 import org.apache.logging.log4j.LogManager;
@@ -17,7 +17,7 @@ public class TakeOrderAction extends DeliverymanAction {
     //TODO: проверки
     @Override
     public Forward exec(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
-        DeliveryManService deliveryManService = factory.getService(DeliveryManService.class);
+        DeliverymanService deliveryManService = factory.getService(DeliverymanService.class);
         HttpSession session = request.getSession(false);
         String identity = request.getParameter("identity");
         if (identity != null) {

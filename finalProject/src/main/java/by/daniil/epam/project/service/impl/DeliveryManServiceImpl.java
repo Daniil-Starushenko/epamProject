@@ -3,12 +3,12 @@ package by.daniil.epam.project.service.impl;
 import by.daniil.epam.project.dao.DeliveryManDao;
 import by.daniil.epam.project.domain.DeliveryMan;
 import by.daniil.epam.project.exception.PersistentException;
-import by.daniil.epam.project.service.DeliveryManService;
+import by.daniil.epam.project.service.DeliverymanService;
 import by.daniil.epam.project.service.ServiceImpl;
 
 import java.util.List;
 
-public class DeliveryManServiceImpl extends ServiceImpl implements DeliveryManService {
+public class DeliveryManServiceImpl extends ServiceImpl implements DeliverymanService {
     @Override
     public List<DeliveryMan> findAll() throws PersistentException {
         DeliveryManDao deliveryManDao = transaction.createDao(DeliveryManDao.class);

@@ -48,6 +48,21 @@
                 </li>
             </c:forEach>
         </ul>
+
+    <ul class="orders-table">
+        <li class="table-header-3">
+            <div class="col col-1"><fmt:message key="order.table.header.order" bundle="${message}"/></div>
+            <div class="col col-2"><p><fmt:message key="order.table.header.status" bundle="${message}"/></p></div>
+            <div class="col col-3"><fmt:message key="order.table.header.totalPrice" bundle="${message}"/></div>
+        </li>
+        <c:forEach var="readyOrder" items="${requestScope.readyOrders}">
+            <li class="table-row">
+                <div class="col col-1">${readyOrder.identity}</div>
+                <div class="col col-2"><p><fmt:message key="order.status.kind.inTransit" bundle="${message}"/></p></div>
+                <div class="col col-3">${readyOrder.totalPrice}$</div>
+            </li>
+        </c:forEach>
+    </ul>
 </div>
 </body>
 </html>

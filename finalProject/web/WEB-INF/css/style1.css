@@ -463,6 +463,13 @@ header {
     letter-spacing: 0.03em;
 }
 
+.orders-table .table-header-3 {
+    background-color: rgba(96, 255, 162, 0.5);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
 .orders-table .table-row {
     background-color: #c69b50;
     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);

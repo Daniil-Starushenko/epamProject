@@ -4,7 +4,7 @@ import by.daniil.epam.project.domain.DeliveryMan;
 import by.daniil.epam.project.domain.Role;
 import by.daniil.epam.project.domain.User;
 import by.daniil.epam.project.exception.PersistentException;
-import by.daniil.epam.project.service.DeliveryManService;
+import by.daniil.epam.project.service.DeliverymanService;
 import by.daniil.epam.project.service.UserService;
 import by.daniil.epam.project.validator.UserValidator;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +25,7 @@ public class CreateDeliverymanAction extends AdminAction {
         UserService userService = factory.getService(UserService.class);
         int id = userService.create(user);
         user.setIdentity(id);
-        DeliveryManService deliveryManService = factory.getService(DeliveryManService.class);
+        DeliverymanService deliveryManService = factory.getService(DeliverymanService.class);
         DeliveryMan deliveryMan = new DeliveryMan();
         deliveryMan.setUser(user);
         deliveryMan.setPhoneNumber(request.getParameter("telNumber"));

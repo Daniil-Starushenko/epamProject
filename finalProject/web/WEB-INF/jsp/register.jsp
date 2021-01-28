@@ -14,4 +14,8 @@
     <input type="email" placeholder="mail@gmail.com" name="mail">
     <BUTTON type="submit">reg</BUTTON>
 </FORM>
+<c:url value="/login.html" var="LoginUrl"/>
+<form action="${LoginUrl}" method="post">
+    <button type="submit" class="registration_button">Login</button>
+</form>
 </html>

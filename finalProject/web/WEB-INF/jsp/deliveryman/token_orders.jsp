@@ -8,14 +8,14 @@
 </head>
 <body class="deliveryman_body">
 <u:menu/>
-<c:url value="/deliveryman/take_order.html" var="TakeOrderUml"/>
+<c:url value="/deliveryman/complete_order.html" var="CompleteOrderUml"/>
 <div class="container_For_active_orders">
     <ul class="responsive-table-active-order">
         <li class="table-header-active-order">
             <div class="col col-1">order</div>
             <div class="col col-4">accept</div>o
         </li>
-        <c:forEach var="order" items="${requestScope.newActiveOrder}">
+        <c:forEach var="order" items="${requestScope.currentOrdersToComplete}">
             <li class="table-row-active-order">
                 <div class="col col-1-active-order">${order.identity}
                     <p><b>total price:</b> ${order.totalPrice}$</p>
@@ -27,9 +27,9 @@
                     <p><b>name:</b> ${order.customer.name}</p>
                 </div>
                 <div class="col col-4-active-order">
-                    <FORM id="form-${order.identity}" action="${TakeOrderUml}" method="post">
+                    <FORM id="form-${order.identity}" action="${CompleteOrderUml}" method="post">
                         <INPUT type="hidden" name="identity" value="${order.identity}">
-                        <button type="submit" class="take_order_button">take this order</button>
+                        <button type="submit" class="take_order_button">complete this order</button>
                     </FORM>
                 </div>
             </li>

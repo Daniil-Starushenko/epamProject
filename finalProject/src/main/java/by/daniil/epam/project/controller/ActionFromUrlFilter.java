@@ -43,6 +43,7 @@ public class ActionFromUrlFilter implements Filter {
         actions.put("/deliveryman/order_page", OpenPersonalOrderPageAction.class);
         actions.put("/deliveryman/take_order", TakeOrderAction.class);
         actions.put("/deliveryman/token_orders", ShowTokenOrdersAction.class);
+        actions.put("/deliveryman/complete_order", CompleteOrderActive.class);
     }
     //TODO: names of actions and names of jsp
 

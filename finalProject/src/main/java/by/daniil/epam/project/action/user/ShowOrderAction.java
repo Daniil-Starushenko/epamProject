@@ -16,7 +16,7 @@ import java.util.List;
 public class ShowOrderAction extends UserAction {
     Logger logger = LogManager.getLogger(ShowOrderAction.class);
     //TODO: massage
-    //TODO:
+    //TODO: return
 
     @Override
     public Forward exec(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
@@ -32,6 +32,10 @@ public class ShowOrderAction extends UserAction {
         List<Order> transitOrders = orderService.findByUserAndStatus(user.getIdentity(), OrderingStatus.IN_TRANSIT.toString());
         if (transitOrders != null) {
             request.setAttribute("transitUserOrders", transitOrders);
+        }
+        List<Order> readyOrders = orderService.findByUserAndStatus(user.getIdentity(), OrderingStatus.READY.toString());
+        if (readyOrders != null) {
+            request.setAttribute("readyOrders", readyOrders);
         }
         return forward;
     }

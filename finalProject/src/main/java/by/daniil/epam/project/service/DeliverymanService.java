@@ -5,7 +5,7 @@ import by.daniil.epam.project.exception.PersistentException;
 
 import java.util.List;
 
-public interface DeliveryManService extends Service {
+public interface DeliverymanService extends Service {
     List<DeliveryMan> findAll() throws PersistentException;
 
     DeliveryMan findById(Integer id) throws PersistentException;
