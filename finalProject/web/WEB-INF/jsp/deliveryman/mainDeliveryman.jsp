@@ -13,7 +13,7 @@
     <form action="${NewOrderDeliveryman}" method="post">
         <button type="submit">show new orders</button>
     </form>
-    <c:url value="/deliveryman/token_orders.html" var="TokenOrderDeliveryman"/>--%>
+    <c:url value="/deliveryman/token_orders.html" var="TokenOrderDeliveryman"/>
     <form action="${TokenOrderDeliveryman}" method="post">
         <button type="submit">current orders</button>
     </form>

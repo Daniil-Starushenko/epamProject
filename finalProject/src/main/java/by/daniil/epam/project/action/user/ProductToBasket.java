@@ -26,8 +26,12 @@ public class ProductToBasket extends UserAction {
             basket = new ArrayList<>();
             int productId = Integer.parseInt(id);
             productToAdd = service.findById(productId);
+            String quantity = request.getParameter("quantity");
+            int numberOfProducts = Integer.parseInt(quantity);
             basket = (List<Product>)userSession.getAttribute("basket");
-            basket.add(productToAdd);
+            for (int i = 0; i < numberOfProducts; i++) {
+                basket.add(productToAdd);
+            }
             userSession.setAttribute("basket", basket);
         }
 

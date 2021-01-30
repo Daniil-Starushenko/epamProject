@@ -19,8 +19,20 @@
         <p><fmt:message key="table.dish" bundle="${message}"/></p>
         <h1>${product.productName}</h1>
         <h2>${product.price}$</h2>
-        <p class="desc">${product.definition}</p>
-        <div class="buttons">
+        <textarea readonly class="desc" rows="10" disabled="disabled">
+            ${product.definition}
+        </textarea>
+        <p>choose number: </p>
+        <div class="custom-select" style="width:10%;">
+            <select name="quantity">
+                <option value="${1}">1</option>
+                <option value="${2}">2</option>
+                <option value="${3}">3</option>
+                <option value="${4}">4</option>
+                <option value="${5}">5</option>
+            </select>
+        </div>
+        <div class="buttons-product">
             <button type="submit" name="productIdentity" value="${product.identity}" class="all_button"><fmt:message key="product.Add.To.Cort" bundle="${message}"/></button>
         </div>
     </div>

@@ -28,8 +28,8 @@ public class Order extends Entity {
         return OrderProducts;
     }
 
-    public void setOrderProduct(OrderItem orderProduct) {
-        OrderProducts.add(orderProduct);
+    public void setOrderProducts(List<OrderItem> orderProducts) {
+        OrderProducts = orderProducts;
     }
 
     public DeliveryMan getDeliveryManForOrder() {

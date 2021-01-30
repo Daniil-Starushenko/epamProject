@@ -12,10 +12,12 @@
 <form action="${indexUrl}" method="post">
 <c:choose>
     <c:when test="${sessionScope.authorizedUser == null}">
+        <div class="first_link_container">
             <c:url value="/login.html" var="loginUrl"/>
-            <A href="${loginUrl}" class="buttonA">login</A>
+            <A href="${loginUrl}" class="first_link">login</A>
             <c:url value="/register.html" var="registerUrl"/>
-            <A href="${registerUrl}" class="buttonA2">register</A>
+            <A href="${registerUrl}" class="first_link">register</A>
+        </div>
     </c:when>
     <c:when test="${sessionScope.authorizedUser != null}">
         <h1>something happens</h1>

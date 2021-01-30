@@ -58,7 +58,7 @@
         <c:forEach var="readyOrder" items="${requestScope.readyOrders}">
             <li class="table-row">
                 <div class="col col-1">${readyOrder.identity}</div>
-                <div class="col col-2"><p><fmt:message key="order.status.kind.inTransit" bundle="${message}"/></p></div>
+                <div class="col col-2"><p><fmt:message key="user.orders.status.ready" bundle="${message}"/></p></div>
                 <div class="col col-3">${readyOrder.totalPrice}$</div>
             </li>
         </c:forEach>

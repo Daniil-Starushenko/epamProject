@@ -6,7 +6,7 @@ import java.util.List;
 public class OrderItem extends Entity {
     Order order;
     User user;
-    private List<Product> productList = new ArrayList();
+    private List<Product> productList;
     private int quantity;
 
     public User getUser() {
@@ -30,7 +30,8 @@ public class OrderItem extends Entity {
     }
 
     public void setProductList(Product product, int number) {
-        for (int i = 0; i <= number; i++ ) {
+        productList = new ArrayList<>();
+        for (int i = 0; i < number; i++ ) {
             this.productList.add(product);
         }
     }

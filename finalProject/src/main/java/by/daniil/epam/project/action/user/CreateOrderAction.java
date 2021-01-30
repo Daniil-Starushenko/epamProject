@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.ListIterator;
 
 public class CreateOrderAction extends UserAction {
     Logger logger = LogManager.getLogger(CreateOrderAction.class);
@@ -42,8 +43,8 @@ public class CreateOrderAction extends UserAction {
             for (int i = 0; i < basket.size(); i++) {
                 OrderItem orderItem = new OrderItem();
                 orderItem.setOrder(order);
-                orderItem.setProductList(basket.get(i), 1);
-                orderItem.setQuantity(1);
+                orderItem.setProductList(basket.get(i), calculateEqualProductsNumber(basket, basket.get(i)));
+                orderItem.setQuantity(orderItem.getProductList().size());
                 orderItem.setUser((User) session.getAttribute("authorizedUser"));
                 itemService.create(orderItem);
             }
@@ -55,16 +56,31 @@ public class CreateOrderAction extends UserAction {
         }
     }
 
-    public String createDate() {
+    private String createDate() {
         SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
         Date date = new Date();
         String registrationDate = ft.format(date);
         return registrationDate;
     }
 
-    public void freeBasket(HttpSession session) {
+    private void freeBasket(HttpSession session) {
         basket.clear();
         session.removeAttribute("basket");
         session.setAttribute("basket", basket);
+    }
+
+    private int calculateEqualProductsNumber(List<Product> basket, Product element) {
+        int counter = 0;
+        ListIterator<Product> products = basket.listIterator();
+
+        while (products.hasNext()) {
+            Product product = products.next();
+            if (element.equals(product)) {
+                if (++counter > 1) {
+                    products.remove();
+                }
+            }
+        }
+        return counter;
     }
 }

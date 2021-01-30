@@ -59,7 +59,9 @@ public class ShowTokenOrdersAction extends DeliverymanAction {
         List<OrderItem> orderItems = service.findByOrderId(id);
         List<Product> products = new ArrayList<>();
         for (OrderItem orderItem : orderItems) {
-            products.add(productService.findById(orderItem.getProductList().get(0).getIdentity()));
+            for (int i = 0; i < orderItem.getQuantity(); i++) {
+                products.add(productService.findById(orderItem.getProductList().get(0).getIdentity()));
+            }
         }
         return products;
     }
