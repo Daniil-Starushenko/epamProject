@@ -52,7 +52,7 @@ margin-top: 20%;
 
 .first_link:active {
     background-color: #917434;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
 
 
@@ -258,9 +258,6 @@ margin-top: 20%;
         text-align: right;
     }
 }
-
-
-
 
 
 /*product page*/
@@ -593,7 +590,6 @@ header {
 }
 
 .editProductClass button {
-
     background: #5f95f1;
     padding: 10px;
     display: inline-block;
@@ -606,12 +602,11 @@ header {
     color: #000000;
     cursor: pointer;
 }
+
 .editProductClass button:hover {
     background: #34689b;
     transition: all 0.4s ease-in-out;
 }
-
-
 
 
 /*ЭТАЛОННОЕ РАСПОЛОЖЕНИЕ*/
@@ -669,6 +664,33 @@ header {
     color: #5f95f1;
     transition: all 0.4s ease-in-out;
 }
+
+.admin-edit-product {
+    background: rgba(62, 119, 255, 0.31);
+    padding: 5px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    margin: -1px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.admin-edit-product:hover {
+    background: #34689b;
+    padding: 10px;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2); ;
+}
+
+.admin-edit-product:active {
+    padding: 5px;
+    transition: all 0.1s ease-in-out;
+}
+
+
 
 /*deliveryman pages*/
 

@@ -19,8 +19,10 @@
             <li class="table-row-active-order">
                 <div class="col col-1-active-order">${order.identity}
                     <p><b>total price:</b> ${order.totalPrice}$</p>
-                    <c:forEach var="product" items="${order.productList}">
-                        <p><b>product</b>: ${product.productName}; price: ${product.price}$</p>
+                    <c:forEach var="orderItem" items="${order.orderProducts}">
+                        <p><b>product</b>: ${orderItem.productList.get(0).productName};</p>
+                        <p>quantity: X${orderItem.quantity}</p>
+                        <p>price: ${orderItem.productList.get(0).price * orderItem.quantity}$</p>
                     </c:forEach>
                     <p><b>address:</b> ${order.address}</p>
                     <p><b>telephone number:</b> ${order.phoneNumber}</p>

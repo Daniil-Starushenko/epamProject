@@ -9,16 +9,17 @@
 <body class="admin_body">
     <u:menu/>
     <div class="admin_main_buttons">
-        <c:url value="/admin/product/edit.html" var="AdminProductEditUrl"/>
-        <form action="${AdminProductEditUrl}" method="post">
+        <c:url value="/admin/product/init.html" var="AdminProductCreateUrl"/>
+        <form action="${AdminProductCreateUrl}" method="post">
             <button type="submit">add new product</button>
         </form>
         <c:url value="/admin/edit/deliveryman.html" var="createDeliveryManUrl"/>
         <form action="${createDeliveryManUrl}" method="post">
             <button type="submit">add new deliveryman</button>
         </form>
-        <form>
-            <button type="submit">show users</button>
+        <c:url value="/admin/show/products.html" var="ShowProductsUrl"/>
+        <form action="${ShowProductsUrl}">
+            <button type="submit">show products</button>
         </form>
     </div>
 </body>

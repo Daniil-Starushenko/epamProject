@@ -41,7 +41,7 @@ public class ShowTokenOrdersAction extends DeliverymanAction {
                 int userId = order.getCustomer().getIdentity();
                 user = takeUser(userId, userService);
                 order.setCustomer(user);
-                order.setProductList(takeProducts(order.getIdentity(), orderItemService, productService));
+                order.setOrderProducts(takeProducts(order.getIdentity(), orderItemService, productService));
                 System.out.println();
             }
 
@@ -55,14 +55,16 @@ public class ShowTokenOrdersAction extends DeliverymanAction {
         return service.findById(id);
     }
 
-    private List<Product> takeProducts(Integer id, OrderItemService service, ProductService productService) throws PersistentException {
+    private List<OrderItem> takeProducts(Integer id, OrderItemService service, ProductService productService) throws PersistentException {
         List<OrderItem> orderItems = service.findByOrderId(id);
-        List<Product> products = new ArrayList<>();
+        int quantity;
+        Product product;
         for (OrderItem orderItem : orderItems) {
-            for (int i = 0; i < orderItem.getQuantity(); i++) {
-                products.add(productService.findById(orderItem.getProductList().get(0).getIdentity()));
-            }
+            quantity = orderItem.getQuantity();
+            product = productService.findById(orderItem.getProductList().get(0).getIdentity());
+            orderItem.setProductList(product, quantity);
+            System.out.println();
         }
-        return products;
+        return orderItems;
     }
 }
