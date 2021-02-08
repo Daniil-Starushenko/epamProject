@@ -682,7 +682,7 @@ header {
     background: #34689b;
     padding: 10px;
     transition: all 0.4s ease-in-out;
-    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2); ;
+    box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);;
 }
 
 .admin-edit-product:active {
@@ -690,6 +690,32 @@ header {
     transition: all 0.1s ease-in-out;
 }
 
+.fl_upload {
+    width: 300px;
+}
+
+#fl_inp {
+    display: none;
+}
+
+.fl_upload label {
+    cursor: pointer;
+    background: #5f95f1;
+    border-radius: 3px;
+    padding: 10px 25px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.fl_upload label:hover {
+    background: rgba(170, 134, 0, 0.64);
+}
+
+#file_name {
+    margin-top: 20px;
+    color: black;
+}
 
 
 /*deliveryman pages*/
@@ -790,4 +816,8 @@ header {
     background: rgba(13, 110, 0, 0.45);
     transition: all 0.1s ease-in-out;
     box-shadow: 5px 10px 10px rgba(2, 128, 144, 0);
+}
+img {
+    height: 100px;
+    width: 100px;
 }

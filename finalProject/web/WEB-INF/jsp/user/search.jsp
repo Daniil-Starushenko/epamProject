@@ -11,6 +11,7 @@
     </head>
     <body>
     <c:url value="/user/product.html" var="UserProductUrl"/>
+    <c:url value="/product-image" var="ProductImageUrl"/>
     <u:menu/>
     <div class="container_For_Products">
         <ul class="responsive-table">
@@ -23,13 +24,15 @@
             <c:forEach var="product" items="${requestScope.products}">
                 <li class="table-row">
                     <div class="col col-1">${product.productName}</div>
-                    <div class="col col-2">photo</div>
+                    <div class="col col-2">
+                        <img src="${ProductImageUrl}?path=${product.pngPath}" alt="<fmt:message key="table.photo" bundle="${message}"/>"/>
+                    </div>
                     <div class="col col-3">${product.price}$</div>
                     <div class="col col-4">
-                        <FORM id="form-${product.identity}" action="${UserProductUrl}" method="post">
-                            <INPUT type="hidden" name="identity" value="${product.identity}">
+                        <form id="form-${product.identity}" action="${UserProductUrl}" method="post">
+                            <input type="hidden" name="identity" value="${product.identity}">
                             <button type="submit" class="all_button">+</button>
-                        </FORM>
+                        </form>
                     </div>
                 </li>
             </c:forEach>

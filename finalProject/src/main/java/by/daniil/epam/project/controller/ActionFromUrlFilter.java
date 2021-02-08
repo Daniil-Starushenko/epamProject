@@ -37,7 +37,7 @@ public class ActionFromUrlFilter implements Filter {
         actions.put("/admin/product/create", CreateProductAction.class);
         actions.put("/admin/edit/deliveryman", EditDeliverymanAction.class);
         actions.put("/admin/create/deliveryman", CreateDeliverymanAction.class);
-        actions.put("/admin/edit/product_info", EditProductInfoAction.class);
+        actions.put("/admin/change/product", EditProductInfoAction.class);
         actions.put("/admin/show/products", ShowProductsListAction.class);
 
         actions.put("/delivery/main", MainDeliveryManAction.class);

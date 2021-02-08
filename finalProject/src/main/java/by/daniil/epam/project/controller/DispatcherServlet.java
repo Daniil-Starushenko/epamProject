@@ -13,6 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Map;
 
+@MultipartConfig
 public class DispatcherServlet extends HttpServlet {
 
     private static Logger logger = LogManager.getLogger(DispatcherServlet.class);
@@ -51,23 +53,26 @@ public class DispatcherServlet extends HttpServlet {
 
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         process(request, response);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         process(request, response);
     }
 
-    private void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void process(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         Action action = (Action) request.getAttribute("action");
         try {
             HttpSession session = request.getSession(false);
-            if(session != null) {
+            if (session != null) {
                 @SuppressWarnings("unchecked")
-                Map<String, Object> attributes = (Map<String, Object>)session.getAttribute("redirectedData");
-                if(attributes != null) {
-                    for(String key : attributes.keySet()) {
+                Map<String, Object> attributes = (Map<String, Object>) session.getAttribute("redirectedData");
+                if (attributes != null) {
+                    for (String key : attributes.keySet()) {
                         request.setAttribute(key, attributes.get(key));
                     }
                     session.removeAttribute("redirectedData");
@@ -76,17 +81,17 @@ public class DispatcherServlet extends HttpServlet {
             ActionManager actionManager = ActionManagerFactory.getManager(getFactory());
             Action.Forward forward = actionManager.execute(action, request, response);
             actionManager.close();
-            if(session != null && forward != null && !forward.getAttributes().isEmpty()) {
+            if (session != null && forward != null && !forward.getAttributes().isEmpty()) {
                 session.setAttribute("redirectedData", forward.getAttributes());
             }
             String requestedUri = request.getRequestURI();
-            if(forward != null && forward.isRedirect()) {
+            if (forward != null && forward.isRedirect()) {
                 String redirectedUri = request.getContextPath() + forward.getForward();
                 logger.debug(String.format("Request for URI \"%s\" id redirected to URI \"%s\"", requestedUri, redirectedUri));
                 response.sendRedirect(redirectedUri);
             } else {
                 String jspPage;
-                if(forward != null) {
+                if (forward != null) {
                     jspPage = forward.getForward();
                 } else {
                     jspPage = action.getCommandName() + ".jsp";
