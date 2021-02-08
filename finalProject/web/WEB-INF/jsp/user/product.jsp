@@ -13,8 +13,10 @@
 <body>
 <u:menu/>
 <c:url value="/user/add/product.html" var="UserAddProductUrl"/>
+<c:url value="/product-image" var="ProductImageUrl"/>
 <form action="${UserAddProductUrl}" method="post">
 <div class="containerProduct">
+    <img class="productPersonalImage" src="${ProductImageUrl}?path=${product.pngPath}" alt="<fmt:message key="table.photo" bundle="${message}"/>" />
     <div class="product">
         <p><fmt:message key="table.dish" bundle="${message}"/></p>
         <h1>${product.productName}</h1>

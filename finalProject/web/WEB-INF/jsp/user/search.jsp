@@ -25,7 +25,7 @@
                 <li class="table-row">
                     <div class="col col-1">${product.productName}</div>
                     <div class="col col-2">
-                        <img src="${ProductImageUrl}?path=${product.pngPath}" alt="<fmt:message key="table.photo" bundle="${message}"/>"/>
+                        <img class="productImages" src="${ProductImageUrl}?path=${product.pngPath}" alt="<fmt:message key="table.photo" bundle="${message}"/>"/>
                     </div>
                     <div class="col col-3">${product.price}$</div>
                     <div class="col col-4">

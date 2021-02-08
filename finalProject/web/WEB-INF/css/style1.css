@@ -1,6 +1,5 @@
 @charset "UTF-8";
 body {
-    background-image: url("/img/body.jpg");
     background-color: rgba(241, 192, 94, 0.7);
     font-family: "Asap", sans-serif;
     margin: 0;
@@ -290,10 +289,20 @@ h2 {
     color: #a27f3f;
 }
 
-/*img {*/
-/*    width: 290px;*/
-/*    margin-top: 47px;*/
-/*}*/
+.productPersonalImage {
+    /*width: 50%;*/
+    width: 200px;
+    height: 150px;
+    margin-top: 20%;
+    position: absolute;
+    transform: translate(0,-50%);
+    margin-left: 3%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: bisque;
+    border-radius: 5%;
+}
+
 
 .product {
     position: absolute;
@@ -314,6 +323,7 @@ h2 {
     overflow: auto;
     border-width: 1px;
     border-color: #c69b50;
+    border-style: solid;
     border-radius: 0;
     resize: none;
 }
@@ -767,6 +777,10 @@ header {
     padding-right: 10px;
 }
 
+.responsive-table {
+    padding-left: 0px;
+}
+
 .responsive-table-active-order li {
     border-radius: 5px;
     padding: 25px 30px;
@@ -817,7 +831,11 @@ header {
     transition: all 0.1s ease-in-out;
     box-shadow: 5px 10px 10px rgba(2, 128, 144, 0);
 }
-img {
+.productImages {
+    border-radius: 8%;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
     height: 100px;
     width: 100px;
 }
