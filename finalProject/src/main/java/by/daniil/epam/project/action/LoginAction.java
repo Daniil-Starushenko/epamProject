@@ -1,5 +1,6 @@
 package by.daniil.epam.project.action;
 
+import by.daniil.epam.project.domain.InfoMessage;
 import by.daniil.epam.project.domain.Role;
 import by.daniil.epam.project.domain.User;
 import by.daniil.epam.project.exception.PersistentException;
@@ -55,6 +56,7 @@ public class LoginAction extends Action {
                 logger.info(String.format("user \"%s\" is logged in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
                 return new Forward("/index.html");
             } else {
+                request.setAttribute("messageType", InfoMessage.ERROR_TYPE);
                 request.setAttribute("message", "Имя пользователя или пароль не опознанны");
                 logger.info(String.format("user \"%s\" unsuccessfully tried to log in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
             }

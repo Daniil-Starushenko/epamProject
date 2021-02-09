@@ -13,7 +13,5 @@
                 <c:url value="/user/profile.html" var="userProfileUrl"/>
                 <A class="aEdit" href="${userProfileUrl}">${sessionScope.authorizedUser.login}</A>
     </c:if>
-<%--    <p style="color: orange;">${requestScope.message}</p>--%>
-<%--</DIV>--%>
 </header>
 

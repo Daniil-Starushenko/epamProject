@@ -918,3 +918,31 @@ header {
     background-color: rgba(241, 192, 94, 0.5);
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
 }
+
+
+/*********MESSAGE********/
+.alert {
+    position: absolute;
+    padding: 20px;
+    width: 50%;
+    color: white;
+    border-radius: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 10%;
+}
+
+.close-button {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-button:hover {
+    color: black;
+}

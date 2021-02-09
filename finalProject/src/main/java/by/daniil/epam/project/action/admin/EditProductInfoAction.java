@@ -1,5 +1,6 @@
 package by.daniil.epam.project.action.admin;
 
+import by.daniil.epam.project.domain.InfoMessage;
 import by.daniil.epam.project.domain.Product;
 import by.daniil.epam.project.exception.PersistentException;
 import by.daniil.epam.project.service.ProductService;
@@ -41,6 +42,7 @@ public class EditProductInfoAction extends AdminAction {
             }
             product.setIdentity(idToChange);
             productService.save(product);
+            request.setAttribute("messageType", InfoMessage.SUCCESS_TYPE);
             request.setAttribute("message", "product is changed");
             return new Forward("/admin/show/products.jsp", false);
         }

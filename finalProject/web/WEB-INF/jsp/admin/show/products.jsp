@@ -14,7 +14,7 @@
 <form action="${MainUrl}" method="post">
     <button type="submit" class="main_button">go to main</button>
 </form>
-<p style="color: green;">${requestScope.message}</p>
+<u:message/>
 <div class="container_For_Products">
     <ul class="responsive-table">
         <c:forEach var="product" items="${requestScope.adminProductList}">
