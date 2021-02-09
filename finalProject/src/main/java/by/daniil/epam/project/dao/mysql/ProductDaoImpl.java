@@ -117,6 +117,58 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
         }
     }
 
+    @Override
+    public List<Product> limitedRead(int limit, int offset) throws PersistentException {
+        String sql = "SELECT `id`, `name`, `png_path`, `definition`, `price` FROM `product` ORDER BY `name` LIMIT ? OFFSET  ?";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, limit);
+            statement.setInt(2, offset);
+            resultSet = statement.executeQuery();
+            List<Product> products = new ArrayList<>();
+            Product product = null;
+            while(resultSet.next()) {
+                product = new Product();
+                product.setIdentity(resultSet.getInt("id"));
+                product.setProductName(resultSet.getString("name"));
+                product.setPngPath(resultSet.getString("png_path"));
+                product.setDefinition(resultSet.getString("definition"));
+                product.setPrice(resultSet.getDouble("price"));
+                products.add(product);
+            }
+            return products;
+        } catch (SQLException e) {
+            throw new PersistentException(e);
+        } finally {
+            try {
+                resultSet.close();
+            } catch (SQLException | NullPointerException e) {
+            }
+            try {
+                statement.close();
+            } catch (SQLException | NullPointerException e) {
+            }
+        }
+    }
+
+    @Override
+    public int readRowCount() throws PersistentException{
+        String sql = "SELECT COUNT(*) FROM `product`";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = statement.executeQuery();
+            int count = 0;
+            if (resultSet.next()) {
+                count = resultSet.getInt(1);
+            }
+            return count;
+        } catch (SQLException e) {
+            throw new PersistentException(e);
+        }
+    }
+
 
     @Override
     public Product read(Integer id) throws PersistentException {

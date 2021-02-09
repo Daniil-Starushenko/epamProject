@@ -9,6 +9,10 @@ import java.util.List;
 public interface ProductService extends Service {
     List<Product> findAll() throws PersistentException;
 
+    List<Product> findLimitedNumberOfProducts(int limit, int offset) throws PersistentException;
+
+    int countNumberOfRows() throws PersistentException;
+
     Product findById(Integer id) throws PersistentException;
 
     Product findByName(String name) throws PersistentException;

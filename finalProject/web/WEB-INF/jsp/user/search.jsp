@@ -2,6 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib tagdir="/WEB-INF/tags" prefix="u"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="tags" uri="customtags"%>
 <fmt:setLocale value="${sessionScope.text}" scope="session"/>
 <fmt:setBundle basename="locale.text" var="message"/>
 <html>
@@ -38,5 +39,6 @@
             </c:forEach>
         </ul>
     </div>
+    <tags:pagination currentPage="${currentPage}" lastPage="${lastPage}" url=""/>
     </body>
 </html>

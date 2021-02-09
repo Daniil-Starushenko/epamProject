@@ -17,6 +17,18 @@ public class ProductServiceImpl extends ServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> findLimitedNumberOfProducts(int limit, int offset) throws PersistentException {
+        ProductDao productDao = transaction.createDao(ProductDao.class);
+        return productDao.limitedRead(limit, offset);
+    }
+
+    @Override
+    public int countNumberOfRows() throws PersistentException {
+        ProductDao productDao = transaction.createDao(ProductDao.class);
+        return productDao.readRowCount();
+    }
+
+    @Override
     public Product findById(Integer id) throws PersistentException {
         ProductDao productDao = transaction.createDao(ProductDao.class);
         return productDao.read(id);

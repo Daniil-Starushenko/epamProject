@@ -5,19 +5,6 @@ body {
     margin: 0;
 }
 
-/*a {*/
-/*    text-decoration: none;*/
-/*    color: rgba(255, 255, 255, 0.6);*/
-/*    position: absolute;*/
-/*    bottom: 10px;*/
-/*    font-size: 40px;*/
-/*}*/
-
-/*a:hover {*/
-/*    color: rgba(255, 255, 255, 0.98);*/
-/*    transition: all 0.4s ease-in-out;*/
-/*}*/
-
 .first_link_container {
 margin-top: 20%;
 }
@@ -838,4 +825,96 @@ header {
     border-style: solid;
     height: 100px;
     width: 100px;
+}
+
+/************ PAGINATION ************/
+.pagination-wrapper {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+.pagination {
+    padding: 30px 0;
+}
+
+.pagination ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.pagination a {
+    display: inline-block;
+    border-color: transparent;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+    padding: 10px 18px;
+    color: #fff;
+}
+
+.pagination a:hover {
+    background-color: rgba(241, 192, 94, 0.7);
+    display: inline-block;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #917434;
+    transition: all 0.4s ease-in-out;
+    text-decoration: none;
+    padding: 10px 18px;
+    color: #fff;
+}
+
+.pagination a:active {
+    transform: translateY(1px);
+    background-color: rgba(241, 192, 94, 0.0);
+}
+
+.pagination li {
+    display: inline-block;
+    margin: auto 5px;
+}
+
+.pagination li.active {
+    background-color: rgba(241, 192, 94, 0.0);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+    transition: all 0.3s ease 0s;
+    border-radius: 15px;
+}
+
+.pagination li.is-active:hover {
+    background-color: rgba(241, 192, 94, 0.8);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease-in-out;
+}
+
+.page-item-prev a:after {
+    content: "<";
+    font-size: larger;
+}
+
+.page-item-next a:after {
+    content: ">";
+    font-size: larger;
+}
+
+
+.pagination li:first-of-type, .pagination li:last-of-type {
+    background-color: rgba(241, 192, 94, 0.0);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #917434;
+    transition: all 0.3s ease 0s;
+    border-radius: 10px;
+}
+
+.pagination li:first-of-type:hover, .pagination li:last-of-type:hover {
+    background-color: rgba(241, 192, 94, 0.5);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
 }
