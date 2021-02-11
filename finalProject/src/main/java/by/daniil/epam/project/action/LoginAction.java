@@ -5,6 +5,7 @@ import by.daniil.epam.project.domain.Role;
 import by.daniil.epam.project.domain.User;
 import by.daniil.epam.project.exception.PersistentException;
 import by.daniil.epam.project.service.UserService;
+import by.daniil.epam.project.validator.LoginValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,6 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class LoginAction extends Action {
     private static Logger logger = LogManager.getLogger(LoginAction.class);
     private static final String ERROR_MESSAGE_KEY = "login.error.input";
+    private static final String INVALID_INPUT_MESSAGE_KEY = "login.invalid.input";
 
     private static Map<Role, List<MenuItem>> menu = new ConcurrentHashMap<>();
 
@@ -45,6 +47,12 @@ public class LoginAction extends Action {
 
     @Override
     public Forward exec(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
+        LoginValidator loginValidator = new LoginValidator();
+        if (loginValidator.validate(request) == null) {
+            request.setAttribute("messageType", InfoMessage.ERROR_TYPE);
+            request.setAttribute("message", INVALID_INPUT_MESSAGE_KEY);
+            return new Forward("/login.html");
+        }
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         if(login != null && password != null) {

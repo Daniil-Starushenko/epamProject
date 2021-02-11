@@ -13,7 +13,7 @@
     <ul class="responsive-table-active-order">
         <li class="table-header-active-order">
             <div class="col col-1">order</div>
-            <div class="col col-4">accept</div>o
+            <div class="col col-4">accept</div>
         </li>
         <c:forEach var="order" items="${requestScope.currentOrdersToComplete}">
             <li class="table-row-active-order">

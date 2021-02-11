@@ -21,9 +21,6 @@ public class ProductDaoImplTest {
     TransactionImpl transaction;
     Product product = new Product();
 
-    public ProductDaoImplTest() throws PersistentException {
-    }
-
     @BeforeMethod
     public void setUp() throws PersistentException {
         connectionPool.init(DB_DRIVER_CLASS, DB_URL, DB_USER, DB_PASSWORD, DB_POOL_START_SIZE, DB_POOL_MAX_SIZE, DB_POOL_CHECK_CONNECTION_TIMEOUT);
