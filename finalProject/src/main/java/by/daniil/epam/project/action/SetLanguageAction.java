@@ -41,7 +41,8 @@ public class SetLanguageAction extends Action {
         session.setAttribute("text", locale);
         Cookie localeCookie = new Cookie("text", locale);
         response.addCookie(localeCookie);
+        String currentPage = request.getParameter("page");
 
-        return new Forward("/login.html");
+        return new Forward(currentPage);
     }
 }

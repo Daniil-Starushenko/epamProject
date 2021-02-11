@@ -26,10 +26,6 @@ public class DispatcherServlet extends HttpServlet {
 
     private static Logger logger = LogManager.getLogger(DispatcherServlet.class);
 
-    public static final String LOG_FILE_NAME = "log.txt";
-    public static final Level LOG_LEVEL = Level.ALL;
-    public static final String LOG_MESSAGE_FORMAT = "%n%d%n%p\t%C.%M:%L%n%m%n";
-
     public static final String DB_DRIVER_CLASS = "com.mysql.jdbc.Driver";
     public static final String DB_URL = "jdbc:mysql://localhost:3306/webShopDatabase";
     public static final String DB_USER = "root";

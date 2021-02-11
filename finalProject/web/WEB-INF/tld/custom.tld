@@ -28,4 +28,23 @@
             <type>java.lang.String</type>
         </attribute>
     </tag>
+
+    <tag>
+        <name>language</name>
+        <tag-class>by.daniil.epam.project.tag.LanguageTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>jspPage</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
+            <name>actionUrl</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+    
 </taglib>
