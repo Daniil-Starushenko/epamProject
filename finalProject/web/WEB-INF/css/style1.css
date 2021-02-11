@@ -5,6 +5,18 @@ body {
     margin: 0;
 }
 
+input:invalid {
+    border-style: solid;
+    border-width: 1px;
+    border-color: red;
+}
+
+input:valid {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(40, 255, 70, 0.7);
+    }
+
 .first_link_container {
 margin-top: 20%;
 }
@@ -53,7 +65,7 @@ margin-top: 20%;
     border-radius: 10px;
     border-style: solid;
     border-color: #987041;
-    margin-top: 10%;
+    margin-top: 8%;
     margin-left: 42.5%;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -62,7 +74,7 @@ margin-top: 20%;
 }
 
 .registration_button:hover {
-    margin-top: 9.5%;
+    margin-top: 7.5%;
     margin-left: 42%;
     background: #987041;
     color: white;
@@ -325,7 +337,6 @@ h2 {
     display: inline-block;
     outline: 0;
     border: 0;
-    margin: -1px;
     border-radius: 2px;
     text-transform: uppercase;
     letter-spacing: 1px;

@@ -1,5 +1,5 @@
 document.getElementById('fl_inp').onchange = function changeDiv() {
-    let fullPath = new String(document.getElementById('fl_inp').value);
+    let fullPath = String(document.getElementById('fl_inp').value);
     if (fullPath) {
         let startIndex = (fullPath.indexOf('\\') >= 0
             ? fullPath.lastIndexOf('\\')
@@ -11,4 +11,4 @@ document.getElementById('fl_inp').onchange = function changeDiv() {
         let div = document.getElementById('file_name');
         div.innerText = filename;
     }
-}
+};

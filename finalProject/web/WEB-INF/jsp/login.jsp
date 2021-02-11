@@ -17,14 +17,14 @@
 <c:set var="jspPage" value="/login.html"/>
 <tags:language jspPage="${jspPage}" actionUrl="${LanguageUrl}"/>
 <c:url value="/login.html" var="loginUrl"/>
-<form action="${loginUrl}" method="post" class="loginClass">
-    <input type="text" placeholder="<fmt:message key="login.username" bundle="${message}"/>" required="required" name="login" value="${param.login}">
-    <input type="password" placeholder="<fmt:message key="login.password" bundle="${message}"/>" required="required" name="password">
+<form action="${loginUrl}" method="post" class="loginClass" name="validatedForm">
+    <input type="text" placeholder="<fmt:message key="login.username" bundle="${message}"/>" required="required" minlength="4" maxlength="10" name="login" id="login" value="${param.login}">
+    <input type="password" placeholder="<fmt:message key="login.password" bundle="${message}"/>" required="required" minlength="4" maxlength="12" name="password">
     <button type="submit"> <fmt:message key="login" bundle="${message}"/></button>
 </form>
 <c:url value="/register.html" var="registerUrl"/>
 <form action="${registerUrl}" method="post">
-    <button type="submit" class="registration_button">registration</button>
+    <button type="submit" class="registration_button"><fmt:message key="login.registration.button" bundle="${message}"/></button>
 </form>
 <u:message/>
 </body>

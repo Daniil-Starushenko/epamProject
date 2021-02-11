@@ -14,6 +14,9 @@
     <c:url value="/user/product.html" var="UserProductUrl"/>
     <c:url value="/product-image" var="ProductImageUrl"/>
     <u:menu/>
+    <c:url var="LanguageUrl" value="/user/language.html"/>
+    <c:set var="jspPage" value="/user/search.html"/>
+    <tags:language jspPage="${jspPage}" actionUrl="${LanguageUrl}"/>
     <div class="container_For_Products">
         <ul class="responsive-table">
             <li class="table-header">
