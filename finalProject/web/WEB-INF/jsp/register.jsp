@@ -8,10 +8,10 @@
 </head>
 <c:url value="/register.html" var="registerUrl"/>
 <FORM action="${registerUrl}" method="post" class="loginClass">
-    <input type="text" placeholder="name" name="name" value="${param.name}">
-    <INPUT type="text" placeholder="Username" name="login" value="${param.login}">
-    <INPUT type="password" placeholder="Password" name="password">
-    <input type="email" placeholder="mail@gmail.com" name="mail">
+    <input type="text" placeholder="name" name="name" required="required" value="${param.name}">
+    <INPUT type="text" placeholder="Username" name="login" required="required" value="${param.login}">
+    <INPUT type="password" placeholder="Password" required="required" name="password">
+    <input type="email" placeholder="mail@gmail.com" required="required" name="mail">
     <BUTTON type="submit">reg</BUTTON>
 </FORM>
 <c:url value="/login.html" var="LoginUrl"/>
