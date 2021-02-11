@@ -1,21 +1,25 @@
 package by.daniil.epam.project.action;
 
+import by.daniil.epam.project.domain.InfoMessage;
 import by.daniil.epam.project.domain.Role;
 import by.daniil.epam.project.domain.User;
 import by.daniil.epam.project.exception.PersistentException;
 import by.daniil.epam.project.service.UserService;
+import by.daniil.epam.project.validator.UserValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Register extends Action {
     private static Logger logger = LogManager.getLogger(Register.class);
+    private static final String INFO_MESSAGE_BUNDLE_KEY = "register.info.message";
 
     private static Map<Role, List<MenuItem>> menu = new ConcurrentHashMap<>();
 
@@ -43,39 +47,29 @@ public class Register extends Action {
 
     @Override
     public Forward exec(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
-        String name = request.getParameter("name");
-        String email = request.getParameter("mail");
-        if(login != null && password != null) {
-            UserService service = factory.getService(UserService.class);
-            User user = service.findByLoginAndPassword(login, password);
-            if(user == null) {
-                HttpSession session = request.getSession();
-                user = new User();
-                user.setName(name);
-                user.setLogin(login);
-                user.setPassword(password);
-                user.setMail(email);
-                user.setRole(Role.USER);
-                user.setRegistrationDate(createDate());
-                service.create(user);
-                session.setAttribute("authorizedUser", user);
-                session.setAttribute("menu", menu.get(user.getRole()));
-                logger.info(String.format("user \"%s\" is registered in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
-                return new Forward("/user/search.html");
-            } else {
-                request.setAttribute("message", "Имя пользователя или пароль не опознанны");
-                logger.info(String.format("user \"%s\" unsuccessfully tried to log in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
-            }
+        UserValidator userValidator = new UserValidator();
+        User validatedUser = userValidator.validate(request);
+        if (validatedUser == null) {
+            request.setAttribute("messageType", InfoMessage.INFO_TYPE);
+            request.setAttribute("message", INFO_MESSAGE_BUNDLE_KEY);
+            return null;
         }
-        return null;
-    }
-
-    public String createDate() {
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
-        Date date = new Date();
-        String registrationDate = ft.format(date);
-        return registrationDate;
+        UserService service = factory.getService(UserService.class);
+        User user = service.findByLoginAndPassword(validatedUser.getLogin(), validatedUser.getPassword());
+        if(user == null) {
+            HttpSession session = request.getSession();
+            user = new User();
+            user = validatedUser;
+            user.setRole(Role.USER);
+            service.create(user);
+            session.setAttribute("authorizedUser", user);
+            session.setAttribute("menu", menu.get(user.getRole()));
+            logger.info(String.format("user \"%s\" is registered in from %s (%s:%s)", user.getLogin(), request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
+            return new Forward("/user/search.html");
+        } else {
+            request.setAttribute("message", "Имя пользователя или пароль не опознанны");
+            logger.info(String.format("user \"%s\" unsuccessfully tried to log in from %s (%s:%s)", user.getLogin(), request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
+            return null;
+        }
     }
 }

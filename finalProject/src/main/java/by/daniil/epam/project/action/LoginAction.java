@@ -16,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class LoginAction extends Action {
     private static Logger logger = LogManager.getLogger(LoginAction.class);
+    private static final String ERROR_MESSAGE_KEY = "login.error.input";
 
     private static Map<Role, List<MenuItem>> menu = new ConcurrentHashMap<>();
 
@@ -57,7 +58,7 @@ public class LoginAction extends Action {
                 return new Forward("/index.html");
             } else {
                 request.setAttribute("messageType", InfoMessage.ERROR_TYPE);
-                request.setAttribute("message", "Имя пользователя или пароль не опознанны");
+                request.setAttribute("message", ERROR_MESSAGE_KEY);
                 logger.info(String.format("user \"%s\" unsuccessfully tried to log in from %s (%s:%s)", login, request.getRemoteAddr(), request.getRemoteHost(), request.getRemotePort()));
             }
         }

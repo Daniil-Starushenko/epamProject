@@ -5,6 +5,6 @@
     <c:if test="${not empty requestScope.message}">
         <div class="alert" style="background-color: ${requestScope.messageType}">
             <span class="close-button" onclick="this.parentElement.style.display='none';">x</span>
-            ${requestScope.message}
+            <fmt:message key="${requestScope.message}" bundle="${message}"/>
         </div>
     </c:if>
