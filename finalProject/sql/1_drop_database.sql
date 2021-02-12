@@ -1,1 +1,1 @@
-DROP DATABASE IF EXISTS `webShopDatabase`;
+DROP DATABASE IF EXISTS `testDatabase`;

@@ -1,4 +1,4 @@
-use `webShopDatabase`;
+use `testDatabase`;
 CREATE TABLE `users` (
                          `id` INTEGER NOT NULL AUTO_INCREMENT,
                          `name` VARCHAR(20) NOT NULL,
