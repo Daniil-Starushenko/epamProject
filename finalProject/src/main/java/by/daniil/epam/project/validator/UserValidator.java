@@ -41,6 +41,7 @@ public class UserValidator implements Validator<User>{
         if (parameter != null) {
             user.setMail(parameter);
         }
+
         user.setRegistrationDate(getDate());
 
         return user;
@@ -48,15 +49,10 @@ public class UserValidator implements Validator<User>{
 
     private boolean checkParam(HttpServletRequest request, String parameter) {
         if (parameter != null) {
-            if (!complexValidator.isValidLoginOrName(parameter)) {
-                request.setAttribute("messageType", InfoMessage.ERROR_TYPE);
-                request.setAttribute("message", INVALID_INPUT_MESSAGE_KEY);
-                return false;
-            }
+            return complexValidator.isValidLoginOrName(parameter);
         } else {
-            return false;
+            return true;
         }
-        return true;
     }
 
     public String getDate() {

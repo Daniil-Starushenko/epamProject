@@ -18,9 +18,9 @@
     <u:message/>
     <c:url value="/register.html" var="registerUrl"/>
     <form action="${registerUrl}" method="post" class="loginClass">
-        <input type="text" placeholder="<fmt:message key="login.name" bundle="${message}"/>" name="name" required="required" value="${param.name}">
-        <input type="text" placeholder="<fmt:message key="login.username" bundle="${message}"/>" name="login" required="required" value="${param.login}">
-        <input type="password" placeholder="<fmt:message key="login.password" bundle="${message}"/>" required="required" name="password">
+        <input type="text" placeholder="<fmt:message key="login.name" bundle="${message}"/>" name="name" required="required" minlength="3" maxlength="12" value="${param.name}">
+        <input type="text" placeholder="<fmt:message key="login.username" bundle="${message}"/>" name="login" required="required" minlength="3" maxlength="12" value="${param.login}">
+        <input type="password" placeholder="<fmt:message key="login.password" bundle="${message}"/>" required="required" minlength="4" maxlength="12" name="password">
         <input type="email" placeholder="mail@gmail.com" required="required" name="mail">
         <button type="submit"><fmt:message key="registration.button.reg" bundle="${message}"/></button>
     </form>

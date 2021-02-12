@@ -49,7 +49,7 @@ public class Register extends Action {
     public Forward exec(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         UserValidator userValidator = new UserValidator();
         User validatedUser = userValidator.validate(request);
-        if (validatedUser == null) {
+        if (validatedUser.getLogin() == null) {
             request.setAttribute("messageType", InfoMessage.INFO_TYPE);
             request.setAttribute("message", INFO_MESSAGE_BUNDLE_KEY);
             return null;
