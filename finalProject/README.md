@@ -1,5 +1,6 @@
 # final task:
-##online service for ordering food at home
+##
+online service for ordering food at home
 С помощью данного сервиса можно заказывать еду на дом;
 В данном приложении существуют несколько ролей: `admin`(администратор), `deliveryman`(доставщик еды) и `user`(пользователь)
 ###
