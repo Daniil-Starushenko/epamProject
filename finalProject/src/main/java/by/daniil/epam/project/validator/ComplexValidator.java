@@ -16,4 +16,10 @@ public class ComplexValidator {
         Matcher matcher = pattern.matcher(parameter);
         return !matcher.find();
     }
+
+    public boolean isValidNumber(String parameter) {
+        String stringToCheck = parameter.replaceAll("-|\\+375", "");
+
+        return stringToCheck.matches("[0-9]{2}[0-9]{3}[0-9]{2}[0-9]{2}");
+    }
  }

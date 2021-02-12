@@ -25,13 +25,6 @@
                 <div class="col col-2"><p><fmt:message key="order.status.kind.inBasket" bundle="${message}"/></p></div>
                 <div class="col col-3">${order.totalPrice}$</div>
             </li>
-<%--            <c:forEach var="product" items="${order.orderProducts}">--%>
-<%--                <li class="table-order-row">--%>
-<%--                    <div class="col col-1">${product.productList.get(0).productName}</div>--%>
-<%--                    <div class="col col-2"></div>--%>
-<%--                    <div class="col col-3">${product.productList.get(0).price}$</div>--%>
-<%--                </li>--%>
-<%--            </c:forEach>--%>
         </c:forEach>
     </ul>
         <ul class="orders-table">

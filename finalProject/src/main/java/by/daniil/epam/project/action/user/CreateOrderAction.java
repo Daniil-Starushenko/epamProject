@@ -4,6 +4,7 @@ import by.daniil.epam.project.domain.*;
 import by.daniil.epam.project.exception.PersistentException;
 import by.daniil.epam.project.service.OrderItemService;
 import by.daniil.epam.project.service.OrderService;
+import by.daniil.epam.project.validator.OrderValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class CreateOrderAction extends UserAction {
+    private static final String ERROR_MESSAGE_INCORRECT_INPUT = "incorrect.number.input";
     Logger logger = LogManager.getLogger(CreateOrderAction.class);
     List<Product> basket = new ArrayList<>();
 
@@ -32,6 +34,13 @@ public class CreateOrderAction extends UserAction {
             String currentDate = createDate();
             order.setCustomer((User) session.getAttribute("authorizedUser"));
             order.setAddress(request.getParameter("address"));
+            OrderValidator orderValidator = new OrderValidator();
+            if (orderValidator.validate(request) == null) {
+                request.setAttribute("basketList", basket);
+                request.setAttribute("messageType", InfoMessage.ERROR_TYPE);
+                request.setAttribute("message", ERROR_MESSAGE_INCORRECT_INPUT);
+                return new Forward("/user/basket.jsp", false);
+            }
             order.setPhoneNumber(request.getParameter("telNumber"));
             order.setDateOfOrdering(currentDate);
             String totalPrice = request.getParameter("totalPrice");
