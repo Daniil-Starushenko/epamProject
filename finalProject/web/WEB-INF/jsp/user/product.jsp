@@ -2,6 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib tagdir="/WEB-INF/tags" prefix="u"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="tags" uri="customtags"%>
 <fmt:setLocale value="${sessionScope.text}" scope="session"/>
 <fmt:setBundle basename="locale.text" var="message"/>
 <html>
@@ -12,6 +13,7 @@
 </head>
 <body>
 <u:menu/>
+<u:message/>
 <c:url value="/user/add/product.html" var="UserAddProductUrl"/>
 <c:url value="/product-image" var="ProductImageUrl"/>
 <form action="${UserAddProductUrl}" method="post">

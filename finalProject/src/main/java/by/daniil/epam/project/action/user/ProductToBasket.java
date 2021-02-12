@@ -1,5 +1,6 @@
 package by.daniil.epam.project.action.user;
 
+import by.daniil.epam.project.domain.InfoMessage;
 import by.daniil.epam.project.domain.Product;
 import by.daniil.epam.project.exception.PersistentException;
 import by.daniil.epam.project.service.ProductService;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductToBasket extends UserAction {
+    private static final String PRODUCT_WAS_ADDED_MESSAGE_BUNDLE = "user.shop.product.was.added";
     Logger logger = LogManager.getLogger(ProductInfo.class);
     private Product productToAdd = new Product();
     private List<Product> basket;
@@ -37,7 +39,9 @@ public class ProductToBasket extends UserAction {
 
         if (productToAdd != null) {
             request.setAttribute("product", productToAdd);
-            return new Forward("/user/search.html");
+            request.setAttribute("messageType", InfoMessage.SUCCESS_TYPE);
+            request.setAttribute("message", PRODUCT_WAS_ADDED_MESSAGE_BUNDLE);
+            return new Forward("/user/product.jsp", false);
         } else {
             request.setAttribute("message", "доступ закрыт");
             logger.info(String.format("access was failed"));
