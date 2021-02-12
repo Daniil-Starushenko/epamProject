@@ -9,16 +9,23 @@
     <body class="admin_body">
     <u:menu/>
     <c:url value="/admin/product/create.html" var="adminProductEditUml"/>
-    <FORM action="${adminProductEditUml}" method="post" class="editProductClass">
+    <FORM action="${adminProductEditUml}" method="post" class="editProductClass" enctype="multipart/form-data">
         <INPUT type="text" placeholder="name" name="EditProductName" required="required" class="inputEdit">
-        <INPUT type="text" placeholder="png" name="pngPath">
-        <textarea required="required" placeholder="description" name="description" m></textarea>
+        <div class="fl_upload">
+            <label><input type="file" id="fl_inp" name="pngPath" accept="image/jpeg">choose file</label>
+            <div id="file_name">file not chosen</div>
+        </div>
+        <textarea required="required" placeholder="description" name="description"></textarea>
         <input type="text" required="required" name="editPrice" placeholder="price: 12.35">
+        <p style="color: red;">${requestScope.message}</p>
         <BUTTON type="submit">Add product</BUTTON>
     </FORM>
     <c:url value="/admin/main.html" var="MainUrl"/>
     <form action="${MainUrl}" method="post">
         <button type="submit" class="main_button">go to main</button>
     </form>
+    <script type="text/javascript">
+        <%@include file="/js/main.js" %>
+    </script>
     </body>
 </html>

@@ -8,13 +8,14 @@
 </head>
 <body class="admin_body">
 <u:menu/>
+<u:message/>
 <c:url value="/admin/create/deliveryman.html" var="adminDeliverymanCreateUml"/>
 <FORM action="${adminDeliverymanCreateUml}" method="post" class="editProductClass">
     <input type="text" placeholder="name" name="name" value="${param.name}" required="required">
     <INPUT type="text" placeholder="Username" name="login" value="${param.login}" required="required">
     <INPUT type="password" placeholder="Password" name="password" required="required">
     <input type="email" placeholder="mail@gmail.com" name="mail" required="required">
-    <INPUT type="tel" pattern="\+375\-[0-9]{2}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}"
+    <INPUT type="tel"
            placeholder="+375(__)*******"
            name="telNumber"
            required="required">

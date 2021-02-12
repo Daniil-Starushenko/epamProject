@@ -8,6 +8,7 @@
 </head>
 <body class="admin_body">
     <u:menu/>
+    <u:message/>
     <div class="admin_main_buttons">
         <c:url value="/admin/product/init.html" var="AdminProductCreateUrl"/>
         <form action="${AdminProductCreateUrl}" method="post">

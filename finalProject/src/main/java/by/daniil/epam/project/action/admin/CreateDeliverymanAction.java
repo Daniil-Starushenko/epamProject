@@ -1,6 +1,7 @@
 package by.daniil.epam.project.action.admin;
 
 import by.daniil.epam.project.domain.DeliveryMan;
+import by.daniil.epam.project.domain.InfoMessage;
 import by.daniil.epam.project.domain.Role;
 import by.daniil.epam.project.domain.User;
 import by.daniil.epam.project.exception.PersistentException;
@@ -14,12 +15,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class CreateDeliverymanAction extends AdminAction {
+    private static final String ERROR_MESSAGE = "admin.create.deliveryman.error.message";
+
     Logger logger = LogManager.getLogger(CreateDeliverymanAction.class);
     //TODO: проверки
     @Override
     public Forward exec(HttpServletRequest request, HttpServletResponse response) throws PersistentException {
         UserValidator userValidator = new UserValidator();
         User user = userValidator.validate(request);
+        if (user == null) {
+            request.setAttribute("messageType", InfoMessage.ERROR_TYPE);
+            request.setAttribute("message", ERROR_MESSAGE);
+            return new Forward("/admin/editDeliveryman.jsp", false);
+        }
         user.setRole(Role.DELIVERY_MAN);
 
         UserService userService = factory.getService(UserService.class);
@@ -30,7 +38,6 @@ public class CreateDeliverymanAction extends AdminAction {
         deliveryMan.setUser(user);
         deliveryMan.setPhoneNumber(request.getParameter("telNumber"));
         deliveryManService.create(deliveryMan);
-
         return new Forward("/admin/main.html");
     }
 }
