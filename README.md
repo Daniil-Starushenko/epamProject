@@ -1,4 +1,4 @@
-# final task:
+# final task for epam courses:
 ##
 online service for ordering food at home
 С помощью данного сервиса можно заказывать еду на дом;
